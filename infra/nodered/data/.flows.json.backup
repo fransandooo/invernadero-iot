@@ -17,8 +17,8 @@
     {
         "id": "6c935a19f2d331f4",
         "type": "mqtt-broker",
-        "name": "Linux Fran",
-        "broker": "172.20.10.12",
+        "name": "Linux",
+        "broker": "localhost",
         "port": 1883,
         "clientid": "",
         "autoConnect": true,
@@ -158,7 +158,7 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "6c935a19f2d331f4",
+        "broker": "broker_mosquitto_service",
         "x": 850,
         "y": 370,
         "wires": []
@@ -171,7 +171,7 @@
         "topic": "greenhouse/+/telemetry",
         "qos": "0",
         "datatype": "json",
-        "broker": "6c935a19f2d331f4",
+        "broker": "broker_mosquitto_service",
         "nl": false,
         "rap": false,
         "inputs": 0,
@@ -211,6 +211,11 @@
         "name": "Reglas AUTO (riego/luz) + alertas",
         "func": "const ts = Date.now();\n\n// Decisiones v0.1 (ajustables luego con el equipo)\nconst SOIL_DRY  = 30;\nconst TANK_LOW  = 15;\nconst LIGHT_LOW = 300;\n\n// Modo (por defecto AUTO)\nconst mode = flow.get('mode') || 'AUTO';\n\nconst soil  = (flow.get('last_node2')||{}).soil;\nconst tank  = (flow.get('last_node4')||{}).tank;\nconst light = (flow.get('last_node3')||{}).light;\n\nlet out = [];\nif(mode === 'AUTO'){\n  // RIEGO\n  if(typeof soil === 'number' && typeof tank === 'number'){\n    if(soil < SOIL_DRY && tank > TANK_LOW){\n      out.push({\n        topic:'greenhouse/node5/cmd/irrigation',\n        payload:{ts, state:'ON', duration_s:10, reason:'soil_low', source:'nodered'}\n      });\n    } else if(soil < SOIL_DRY && tank <= TANK_LOW){\n      out.push({\n        topic:'greenhouse/alerts',\n        payload:{ts, level:'WARN', msg:'Suelo seco pero tanque bajo: no se riega', context:{soil, tank}}\n      });\n    }\n  }\n\n  // LUZ\n  if(typeof light === 'number'){\n    if(light < LIGHT_LOW){\n      out.push({\n        topic:'greenhouse/node5/cmd/light',\n        payload:{ts, state:'ON', reason:'low_light', source:'nodered'}\n      });\n    }\n  }\n}\n\nreturn [out.length ? out : null];",
         "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
         "x": 820,
         "y": 480,
         "wires": [
@@ -233,7 +238,7 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "6c935a19f2d331f4",
+        "broker": "broker_mosquitto_service",
         "x": 1110,
         "y": 460,
         "wires": []
@@ -312,7 +317,7 @@
                 "p": "payload"
             },
             {
-                "p": "msg",
+                "p": "topic",
                 "v": "{\"ts\":0,\"tank\":60,\"unit\":\"%\"}",
                 "vt": "json"
             }
@@ -345,7 +350,7 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "6c935a19f2d331f4",
+        "broker": "broker_mosquitto_service",
         "x": 740,
         "y": 280,
         "wires": []
@@ -363,7 +368,7 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "6c935a19f2d331f4",
+        "broker": "broker_mosquitto_service",
         "x": 720,
         "y": 180,
         "wires": []
@@ -411,7 +416,7 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "6c935a19f2d331f4",
+        "broker": "broker_mosquitto_service",
         "x": 720,
         "y": 100,
         "wires": []
