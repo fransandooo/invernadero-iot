@@ -15,9 +15,25 @@
         "info": ""
     },
     {
+        "id": "cf5ad1e3d87a7587",
+        "type": "tab",
+        "label": "Flujo 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "89a076a5a8875485",
+        "type": "tab",
+        "label": "Flujo 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "6c935a19f2d331f4",
         "type": "mqtt-broker",
-        "name": "Linux",
+        "name": "Linux Fran",
         "broker": "localhost",
         "port": 1883,
         "clientid": "",
@@ -56,7 +72,48 @@
         "usetls": false,
         "protocolVersion": "4",
         "keepalive": "60",
-        "cleansession": true
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "59e62491c0233b71",
+        "type": "telegram bot",
+        "botname": "Greenhouse Bot",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "testenvironment": false,
+        "updatemode": "polling",
+        "pollinterval": "1",
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": 6667,
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbothost": "0.0.0.0",
+        "localbotport": 8443,
+        "publicbotport": 8443,
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
     },
     {
         "id": "46ea805ba01866be",
@@ -189,10 +246,10 @@
         "type": "function",
         "z": "tab_greenhouse_v01",
         "name": "Guardar últimas muestras",
-        "func": "const node1 = msg.topic.split('/')[1];\nflow.set('last_'+node1, msg.payload);\nreturn msg;",
+        "func": "const node = msg.topic.split('/')[1];\nflow.set('last_'+node, msg.payload);\nreturn msg;",
         "outputs": 1,
         "timeout": "",
-        "noerr": 0,
+        "noerr": 1,
         "initialize": "",
         "finalize": "",
         "libs": [],
@@ -211,11 +268,6 @@
         "name": "Reglas AUTO (riego/luz) + alertas",
         "func": "const ts = Date.now();\n\n// Decisiones v0.1 (ajustables luego con el equipo)\nconst SOIL_DRY  = 30;\nconst TANK_LOW  = 15;\nconst LIGHT_LOW = 300;\n\n// Modo (por defecto AUTO)\nconst mode = flow.get('mode') || 'AUTO';\n\nconst soil  = (flow.get('last_node2')||{}).soil;\nconst tank  = (flow.get('last_node4')||{}).tank;\nconst light = (flow.get('last_node3')||{}).light;\n\nlet out = [];\nif(mode === 'AUTO'){\n  // RIEGO\n  if(typeof soil === 'number' && typeof tank === 'number'){\n    if(soil < SOIL_DRY && tank > TANK_LOW){\n      out.push({\n        topic:'greenhouse/node5/cmd/irrigation',\n        payload:{ts, state:'ON', duration_s:10, reason:'soil_low', source:'nodered'}\n      });\n    } else if(soil < SOIL_DRY && tank <= TANK_LOW){\n      out.push({\n        topic:'greenhouse/alerts',\n        payload:{ts, level:'WARN', msg:'Suelo seco pero tanque bajo: no se riega', context:{soil, tank}}\n      });\n    }\n  }\n\n  // LUZ\n  if(typeof light === 'number'){\n    if(light < LIGHT_LOW){\n      out.push({\n        topic:'greenhouse/node5/cmd/light',\n        payload:{ts, state:'ON', reason:'low_light', source:'nodered'}\n      });\n    }\n  }\n}\n\nreturn [out.length ? out : null];",
         "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
         "x": 820,
         "y": 480,
         "wires": [
@@ -420,5 +472,122 @@
         "x": 720,
         "y": 100,
         "wires": []
+    },
+    {
+        "id": "464c620f3e7237a0",
+        "type": "telegram sender",
+        "z": "cf5ad1e3d87a7587",
+        "name": "",
+        "bot": "59e62491c0233b71",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 1130,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8dd5f5e168861f59",
+        "type": "function",
+        "z": "cf5ad1e3d87a7587",
+        "name": "Funcion 1",
+        "func": "msg.payload = {\n  chatId: 7906886061,   // TU chatId (ahora te digo cómo sacarlo)\n  type: \"message\",\n  content: \"🚨 Mensaje enviado automáticamente desde Node-RED\"\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 340,
+        "wires": [
+            [
+                "464c620f3e7237a0"
+            ]
+        ]
+    },
+    {
+        "id": "a8744ebbe8bda418",
+        "type": "inject",
+        "z": "cf5ad1e3d87a7587",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "test",
+        "payloadType": "str",
+        "x": 570,
+        "y": 360,
+        "wires": [
+            [
+                "8dd5f5e168861f59"
+            ]
+        ]
+    },
+    {
+        "id": "d45064e5892fd1e8",
+        "type": "telegram receiver",
+        "z": "89a076a5a8875485",
+        "name": "",
+        "bot": "59e62491c0233b71",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "hasinput": false,
+        "inputs": 0,
+        "handleallupdates": false,
+        "x": 590,
+        "y": 440,
+        "wires": [
+            [],
+            [
+                "3093224483c5ce2f"
+            ]
+        ]
+    },
+    {
+        "id": "f540bea440ef489c",
+        "type": "telegram sender",
+        "z": "89a076a5a8875485",
+        "name": "",
+        "bot": "59e62491c0233b71",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 990,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3093224483c5ce2f",
+        "type": "function",
+        "z": "89a076a5a8875485",
+        "name": "function 3",
+        "func": "msg.payload = {\n  chatId: msg.payload.chatId,\n  type: \"message\",\n  content: \"🤖 Bot del invernadero conectado correctamente\"\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 440,
+        "wires": [
+            [
+                "f540bea440ef489c"
+            ]
+        ]
     }
 ]
