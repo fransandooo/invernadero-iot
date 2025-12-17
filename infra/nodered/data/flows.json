@@ -91,13 +91,13 @@
     {
         "id": "59e62491c0233b71",
         "type": "telegram bot",
-        "botname": "GreenhouseBot",
+        "botname": "Greenhouse Bot",
         "usernames": "",
         "chatids": "",
         "baseapiurl": "",
         "testenvironment": false,
         "updatemode": "polling",
-        "pollinterval": 300,
+        "pollinterval": "1",
         "usesocks": false,
         "sockshost": "",
         "socksprotocol": "socks5",
@@ -474,26 +474,6 @@
         "wires": []
     },
     {
-        "id": "dc9d1142e1fb7a5c",
-        "type": "telegram receiver",
-        "z": "cf5ad1e3d87a7587",
-        "name": "",
-        "bot": "59e62491c0233b71",
-        "saveDataDir": "",
-        "filterCommands": false,
-        "hasinput": false,
-        "inputs": 0,
-        "handleallupdates": false,
-        "x": 350,
-        "y": 340,
-        "wires": [
-            [],
-            [
-                "8dd5f5e168861f59"
-            ]
-        ]
-    },
-    {
         "id": "464c620f3e7237a0",
         "type": "telegram sender",
         "z": "cf5ad1e3d87a7587",
@@ -501,7 +481,7 @@
         "bot": "59e62491c0233b71",
         "haserroroutput": false,
         "outputs": 1,
-        "x": 750,
+        "x": 1130,
         "y": 340,
         "wires": [
             []
@@ -511,15 +491,15 @@
         "id": "8dd5f5e168861f59",
         "type": "function",
         "z": "cf5ad1e3d87a7587",
-        "name": "function 1",
-        "func": "msg.payload = {\n  chatId: msg.payload.chatId,\n  type: \"message\",\n  content: \"🤖 Bot del invernadero conectado correctamente\"\n};\nreturn msg;",
+        "name": "Funcion 1",
+        "func": "msg.payload = {\n  chatId: 7906886061,   // TU chatId (ahora te digo cómo sacarlo)\n  type: \"message\",\n  content: \"🚨 Mensaje enviado automáticamente desde Node-RED\"\n};\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 560,
+        "x": 820,
         "y": 340,
         "wires": [
             [
@@ -528,56 +508,31 @@
         ]
     },
     {
-        "id": "7924d53e28227ac2",
-        "type": "telegram receiver",
+        "id": "a8744ebbe8bda418",
+        "type": "inject",
         "z": "cf5ad1e3d87a7587",
         "name": "",
-        "bot": "59e62491c0233b71",
-        "saveDataDir": "",
-        "filterCommands": false,
-        "hasinput": false,
-        "inputs": 0,
-        "handleallupdates": false,
-        "x": 590,
-        "y": 540,
-        "wires": [
-            [],
-            [
-                "52de11bca2c7d61f"
-            ]
-        ]
-    },
-    {
-        "id": "aa222f30c91566aa",
-        "type": "telegram sender",
-        "z": "cf5ad1e3d87a7587",
-        "name": "",
-        "bot": "59e62491c0233b71",
-        "haserroroutput": false,
-        "outputs": 1,
-        "x": 990,
-        "y": 540,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "52de11bca2c7d61f",
-        "type": "function",
-        "z": "cf5ad1e3d87a7587",
-        "name": "function 2",
-        "func": "msg.payload = {\n  chatId: msg.payload.chatId,\n  type: \"message\",\n  content: \"🤖 Bot del invernadero conectado correctamente\"\n};\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 800,
-        "y": 540,
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "test",
+        "payloadType": "str",
+        "x": 570,
+        "y": 360,
         "wires": [
             [
-                "aa222f30c91566aa"
+                "8dd5f5e168861f59"
             ]
         ]
     },
