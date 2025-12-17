@@ -1,0 +1,156 @@
+[
+    {
+        "id": "f2430b58c3984a21",
+        "type": "ui-gauge",
+        "z": "543f4ba6265dcfb2",
+        "name": "🌡️ Temp",
+        "group": "ui_group_sensors",
+        "order": 1,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Temperatura",
+        "alwaysShowTitle": false,
+        "units": "°C",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#2196f3",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "18",
+                "color": "#4caf50",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "30",
+                "color": "#ff9800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "38",
+                "color": "#f44336",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "50",
+        "sizeThickness": "",
+        "sizeGap": "",
+        "sizeKeyThickness": "",
+        "className": "",
+        "x": 750,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ui_group_sensors",
+        "type": "ui-group",
+        "name": "📡 Sensores en Vivo",
+        "page": "ui_page_main",
+        "width": "6",
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "ui_page_main",
+        "type": "ui-page",
+        "name": "🌱 Invernadero",
+        "ui": "3a35c9c592e34af5",
+        "path": "/greenhouse",
+        "icon": "mdi-sprout",
+        "layout": "grid",
+        "theme": "ui_theme_greenhouse",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "3a35c9c592e34af5",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": false
+    },
+    {
+        "id": "ui_theme_greenhouse",
+        "type": "ui-theme",
+        "name": "Greenhouse Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#2e7d32",
+            "bgPage": "#e8f5e9",
+            "groupBg": "#ffffff",
+            "groupOutline": "#a5d6a7"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "8px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "aea136a0ef6db49a",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "@flowfuse/node-red-dashboard": "1.30.0"
+        }
+    }
+]

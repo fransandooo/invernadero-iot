@@ -15,56 +15,320 @@
         "info": ""
     },
     {
-        "id": "cf5ad1e3d87a7587",
+        "id": "543f4ba6265dcfb2",
         "type": "tab",
-        "label": "Flujo 1",
+        "label": "🌱 Greenhouse IoT",
         "disabled": false,
-        "info": "",
-        "env": []
+        "info": "Sistema de invernadero inteligente"
     },
     {
-        "id": "89a076a5a8875485",
-        "type": "tab",
-        "label": "Flujo 2",
-        "disabled": false,
-        "info": "",
-        "env": []
+        "id": "3a35c9c592e34af5",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": false
     },
     {
-        "id": "6c935a19f2d331f4",
+        "id": "5754e58ec0417929",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094CE",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "1ec73deaf6bc3dc1",
+        "type": "ui-page",
+        "name": "Page 1",
+        "ui": "3a35c9c592e34af5",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "5754e58ec0417929",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": 0,
+                "cols": 3
+            },
+            {
+                "name": "Tablet",
+                "px": 576,
+                "cols": 6
+            },
+            {
+                "name": "Small Desktop",
+                "px": 768,
+                "cols": 9
+            },
+            {
+                "name": "Desktop",
+                "px": 1024,
+                "cols": 12
+            }
+        ],
+        "order": 2,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "4a65c87333bbbcb6",
+        "type": "ui-group",
+        "name": "Histórico",
+        "page": "",
+        "width": "12",
+        "height": 1,
+        "order": 3,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "65d64ac6f6906bf9",
+        "type": "ui-group",
+        "name": "Alertas",
+        "page": "",
+        "width": "12",
+        "height": 1,
+        "order": 2,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "8ce56bd18eca7df1",
+        "type": "ui-group",
+        "name": "Control",
+        "page": "",
+        "width": "12",
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "34856bdb569caf69",
+        "type": "ui-group",
+        "name": "Sensores (Live)",
+        "page": "",
+        "width": "12",
+        "height": 1,
+        "order": 4,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "ui_theme_greenhouse",
+        "type": "ui-theme",
+        "name": "Greenhouse Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#2e7d32",
+            "bgPage": "#e8f5e9",
+            "groupBg": "#ffffff",
+            "groupOutline": "#a5d6a7"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "8px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "ui_page_main",
+        "type": "ui-page",
+        "name": "🌱 Invernadero",
+        "ui": "3a35c9c592e34af5",
+        "path": "/greenhouse",
+        "icon": "mdi-sprout",
+        "layout": "grid",
+        "theme": "ui_theme_greenhouse",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "ui_page_history",
+        "type": "ui-page",
+        "name": "📊 Histórico",
+        "ui": "3a35c9c592e34af5",
+        "path": "/history",
+        "icon": "mdi-chart-line",
+        "layout": "grid",
+        "theme": "ui_theme_greenhouse",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 2,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "ui_group_sensors",
+        "type": "ui-group",
+        "name": "📡 Sensores en Vivo",
+        "page": "ui_page_main",
+        "width": "6",
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "ui_group_status",
+        "type": "ui-group",
+        "name": "⚡ Estado del Sistema",
+        "page": "ui_page_main",
+        "width": "6",
+        "height": 1,
+        "order": 2,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "ui_group_alerts",
+        "type": "ui-group",
+        "name": "🚨 Alertas",
+        "page": "ui_page_main",
+        "width": "12",
+        "height": 1,
+        "order": 3,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "ui_group_charts",
+        "type": "ui-group",
+        "name": "📈 Histórico (últimas 2h)",
+        "page": "ui_page_history",
+        "width": "12",
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "telegram_bot_config",
+        "type": "telegram bot",
+        "botname": "GreenhouseBot",
+        "usernames": "",
+        "chatids": "7906886061",
+        "baseapiurl": "",
+        "testenvironment": false,
+        "updatemode": "polling",
+        "pollinterval": "3000",
+        "usesocks": false,
+        "sockshost": "",
+        "socksport": "6667",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbothost": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    },
+    {
+        "id": "dcc2accf755af92f",
         "type": "mqtt-broker",
-        "name": "Linux Fran",
-        "broker": "localhost",
-        "port": 1883,
-        "clientid": "",
-        "autoConnect": true,
-        "usetls": false,
-        "protocolVersion": 4,
-        "keepalive": 60,
-        "cleansession": true,
-        "autoUnsubscribe": true,
-        "birthTopic": "",
-        "birthQos": "0",
-        "birthRetain": "false",
-        "birthPayload": "",
-        "birthMsg": {},
-        "closeTopic": "",
-        "closeQos": "0",
-        "closeRetain": "false",
-        "closePayload": "",
-        "closeMsg": {},
-        "willTopic": "",
-        "willQos": "0",
-        "willRetain": "false",
-        "willPayload": "",
-        "willMsg": {},
-        "userProps": "",
-        "sessionExpiry": ""
-    },
-    {
-        "id": "broker_mosquitto_service",
-        "type": "mqtt-broker",
-        "name": "mosquitto (docker service)",
+        "name": "Mosquitto",
         "broker": "mosquitto",
         "port": "1883",
         "clientid": "nodered-greenhouse",
@@ -89,31 +353,50 @@
         "sessionExpiry": ""
     },
     {
-        "id": "59e62491c0233b71",
-        "type": "telegram bot",
-        "botname": "Greenhouse Bot",
-        "usernames": "",
-        "chatids": "",
-        "baseapiurl": "",
-        "testenvironment": false,
-        "updatemode": "polling",
-        "pollinterval": "1",
-        "usesocks": false,
-        "sockshost": "",
-        "socksprotocol": "socks5",
-        "socksport": 6667,
-        "socksusername": "anonymous",
-        "sockspassword": "",
-        "bothost": "",
-        "botpath": "",
-        "localbothost": "0.0.0.0",
-        "localbotport": 8443,
-        "publicbotport": 8443,
-        "privatekey": "",
-        "certificate": "",
-        "useselfsignedcertificate": false,
-        "sslterminated": false,
-        "verboselogging": false
+        "id": "5d25f1496e18e793",
+        "type": "ui-theme",
+        "name": "Green Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#2e7d32",
+            "bgPage": "#e8f5e9",
+            "groupBg": "#ffffff",
+            "groupOutline": "#a5d6a7"
+        },
+        "sizes": {
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "widgetGap": "12px",
+            "groupBorderRadius": "8px"
+        }
+    },
+    {
+        "id": "4e887e2ea2936515",
+        "type": "ui-page",
+        "name": "Invernadero",
+        "ui": "3a35c9c592e34af5",
+        "path": "/",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "5d25f1496e18e793",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1
     },
     {
         "id": "46ea805ba01866be",
@@ -128,7 +411,7 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "6c935a19f2d331f4",
+        "broker": "",
         "x": 810,
         "y": 260,
         "wires": []
@@ -173,33 +456,17 @@
                 "p": "payload"
             }
         ],
-        "repeat": "15",
+        "repeat": "",
+        "crontab": "",
         "once": true,
         "onceDelay": "1",
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 300,
+        "x": 290,
         "y": 370,
         "wires": [
-            [
-                "fn_simulate"
-            ]
-        ]
-    },
-    {
-        "id": "fn_simulate",
-        "type": "function",
-        "z": "tab_greenhouse_v01",
-        "name": "Simular node1..4 (telemetry)",
-        "func": "const ts = Date.now();\nfunction clamp(v,min,max){return Math.max(min,Math.min(max,v));}\nfunction jitter(base, delta){return base + (Math.random()*2-1)*delta;}\n\n// Demo: valores realistas\nconst temp  = clamp(jitter(24, 2),  15, 40);\nconst hum   = clamp(jitter(55, 8),  20, 90);\nconst soil  = clamp(jitter(38, 10),  0, 100);\nconst tank  = clamp(jitter(45, 12),  0, 100);\nconst light = clamp(jitter(450, 180), 0, 1023);\n\nreturn [[\n  { topic:'greenhouse/node1/telemetry', payload:{ts, temp, hum} },\n  { topic:'greenhouse/node2/telemetry', payload:{ts, soil, unit:'%'} },\n  { topic:'greenhouse/node3/telemetry', payload:{ts, light, unit:'adc'} },\n  { topic:'greenhouse/node4/telemetry', payload:{ts, tank, unit:'%'} }\n]];",
-        "outputs": 1,
-        "x": 590,
-        "y": 370,
-        "wires": [
-            [
-                "mqtt_out_tele"
-            ]
+            []
         ]
     },
     {
@@ -215,7 +482,7 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "broker_mosquitto_service",
+        "broker": "",
         "x": 850,
         "y": 370,
         "wires": []
@@ -228,7 +495,7 @@
         "topic": "greenhouse/+/telemetry",
         "qos": "0",
         "datatype": "json",
-        "broker": "broker_mosquitto_service",
+        "broker": "",
         "nl": false,
         "rap": false,
         "inputs": 0,
@@ -290,7 +557,7 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "broker_mosquitto_service",
+        "broker": "",
         "x": 1110,
         "y": 460,
         "wires": []
@@ -402,7 +669,7 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "broker_mosquitto_service",
+        "broker": "",
         "x": 740,
         "y": 280,
         "wires": []
@@ -420,7 +687,7 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "broker_mosquitto_service",
+        "broker": "",
         "x": 720,
         "y": 180,
         "wires": []
@@ -468,125 +735,900 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "broker_mosquitto_service",
+        "broker": "",
         "x": 720,
         "y": 100,
         "wires": []
     },
     {
-        "id": "464c620f3e7237a0",
-        "type": "telegram sender",
-        "z": "cf5ad1e3d87a7587",
-        "name": "",
-        "bot": "59e62491c0233b71",
-        "haserroroutput": false,
-        "outputs": 1,
-        "x": 1130,
-        "y": 340,
+        "id": "e71fe38602b1502a",
+        "type": "comment",
+        "z": "543f4ba6265dcfb2",
+        "name": "══════════ 🧪 SIMULADOR ══════════",
+        "x": 180,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "522bba5dd5a58c6c",
+        "type": "inject",
+        "z": "543f4ba6265dcfb2",
+        "name": "⏱️ Cada 15s",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "15",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 100,
         "wires": [
-            []
+            [
+                "c137c81b10d60f38"
+            ]
         ]
     },
     {
-        "id": "8dd5f5e168861f59",
+        "id": "c137c81b10d60f38",
         "type": "function",
-        "z": "cf5ad1e3d87a7587",
-        "name": "Funcion 1",
-        "func": "msg.payload = {\n  chatId: 7906886061,   // TU chatId (ahora te digo cómo sacarlo)\n  type: \"message\",\n  content: \"🚨 Mensaje enviado automáticamente desde Node-RED\"\n};\nreturn msg;",
+        "z": "543f4ba6265dcfb2",
+        "name": "🎲 Generar Datos",
+        "func": "const ts = Date.now();\n\nfunction clamp(v, min, max) {\n    return Math.max(min, Math.min(max, v));\n}\n\nfunction jitter(base, delta) {\n    return base + (Math.random() * 2 - 1) * delta;\n}\n\n// Redondear valores\nconst temp = Math.round(clamp(jitter(24, 4), 15, 40) * 10) / 10;\nconst hum = Math.round(clamp(jitter(55, 15), 20, 90) * 10) / 10;\nconst soil = Math.round(clamp(jitter(45, 25), 0, 100) * 10) / 10;\nconst light = Math.round(clamp(jitter(500, 350), 0, 1023));\nconst tank = Math.round(clamp(jitter(60, 30), 0, 100));\n\nconst msgs = [\n    { topic: \"greenhouse/node1/telemetry\", payload: { ts, type: \"temp\", value: temp } },\n    { topic: \"greenhouse/node1/telemetry\", payload: { ts, type: \"hum\", value: hum } },\n    { topic: \"greenhouse/node2/telemetry\", payload: { ts, type: \"soil\", value: soil } },\n    { topic: \"greenhouse/node3/telemetry\", payload: { ts, type: \"light\", value: light } },\n    { topic: \"greenhouse/node4/telemetry\", payload: { ts, type: \"tank\", value: tank } }\n];\n\nreturn [msgs];",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 820,
-        "y": 340,
+        "x": 350,
+        "y": 100,
         "wires": [
             [
-                "464c620f3e7237a0"
+                "e6b184013764cd40"
             ]
         ]
     },
     {
-        "id": "a8744ebbe8bda418",
-        "type": "inject",
-        "z": "cf5ad1e3d87a7587",
-        "name": "",
-        "props": [
+        "id": "e6b184013764cd40",
+        "type": "mqtt out",
+        "z": "543f4ba6265dcfb2",
+        "name": "📤 Publish",
+        "topic": "",
+        "qos": "0",
+        "retain": "false",
+        "broker": "dcc2accf755af92f",
+        "x": 550,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "13e8f1cc0f26f70c",
+        "type": "comment",
+        "z": "543f4ba6265dcfb2",
+        "name": "══════════ 📥 ENTRADA MQTT ══════════",
+        "x": 200,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "909b38766d25e9b8",
+        "type": "debug",
+        "z": "543f4ba6265dcfb2",
+        "name": "telemetry",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 360,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "4801934cc21ea1d2",
+        "type": "function",
+        "z": "543f4ba6265dcfb2",
+        "name": "🔄 Parse + Store",
+        "func": "const p = msg.payload;\nif (!p || !p.type) return null;\n\n// Guardar último valor\nflow.set(`last_${p.type}`, { ts: p.ts, value: p.value });\n\n// Preparar para gauges (solo valor)\nmsg.payload = p.value;\nmsg.sensorType = p.type;\nmsg.timestamp = p.ts;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 240,
+        "wires": [
+            [
+                "8b8618ebdf71cb4d",
+                "cdba7ae694a5bbf4",
+                "9b567363453a2073"
+            ]
+        ]
+    },
+    {
+        "id": "8b8618ebdf71cb4d",
+        "type": "switch",
+        "z": "543f4ba6265dcfb2",
+        "name": "🔀 Tipo",
+        "property": "sensorType",
+        "propertyType": "msg",
+        "rules": [
             {
-                "p": "payload"
+                "t": "eq",
+                "v": "temp",
+                "vt": "str"
             },
             {
-                "p": "topic",
+                "t": "eq",
+                "v": "hum",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "soil",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "light",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "tank",
                 "vt": "str"
             }
         ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "test",
-        "payloadType": "str",
-        "x": 570,
-        "y": 360,
+        "checkall": "true",
+        "repair": false,
+        "outputs": 5,
+        "x": 550,
+        "y": 240,
         "wires": [
             [
-                "8dd5f5e168861f59"
+                "f2430b58c3984a21",
+                "5af8a6b42253cede"
+            ],
+            [
+                "bf438864b85b49e4",
+                "00437a6c21370b11"
+            ],
+            [
+                "6b8d9fe304ed6c51",
+                "87f5a52d80c9b1b3"
+            ],
+            [
+                "f725d430bc012293",
+                "a2d4b80b8c858b47"
+            ],
+            [
+                "f007abb55072ed03",
+                "2a8ee0ea55a42c7a"
             ]
         ]
     },
     {
-        "id": "d45064e5892fd1e8",
+        "id": "f2430b58c3984a21",
+        "type": "ui-gauge",
+        "z": "543f4ba6265dcfb2",
+        "name": "🌡️ Temp",
+        "group": "ui_group_sensors",
+        "order": 1,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Temperatura",
+        "alwaysShowTitle": false,
+        "units": "°C",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#2196f3",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "18",
+                "color": "#4caf50",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "30",
+                "color": "#ff9800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "38",
+                "color": "#f44336",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "50",
+        "sizeThickness": "",
+        "sizeGap": "",
+        "sizeKeyThickness": "",
+        "className": "",
+        "x": 750,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bf438864b85b49e4",
+        "type": "ui-gauge",
+        "z": "543f4ba6265dcfb2",
+        "name": "💧 Hum",
+        "group": "ui_group_sensors",
+        "order": 2,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Humedad Amb",
+        "units": "%",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#ff9800"
+            },
+            {
+                "from": "30",
+                "color": "#4caf50"
+            },
+            {
+                "from": "70",
+                "color": "#2196f3"
+            }
+        ],
+        "min": 0,
+        "max": "100",
+        "x": 750,
+        "y": 170,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6b8d9fe304ed6c51",
+        "type": "ui-gauge",
+        "z": "543f4ba6265dcfb2",
+        "name": "🌱 Soil",
+        "group": "ui_group_sensors",
+        "order": 3,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Humedad Suelo",
+        "units": "%",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#f44336"
+            },
+            {
+                "from": "30",
+                "color": "#ff9800"
+            },
+            {
+                "from": "50",
+                "color": "#4caf50"
+            }
+        ],
+        "min": 0,
+        "max": "100",
+        "x": 750,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f725d430bc012293",
+        "type": "ui-gauge",
+        "z": "543f4ba6265dcfb2",
+        "name": "☀️ Light",
+        "group": "ui_group_sensors",
+        "order": 4,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Luz",
+        "units": "ADC",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#37474f"
+            },
+            {
+                "from": "300",
+                "color": "#ffeb3b"
+            },
+            {
+                "from": "700",
+                "color": "#fff59d"
+            }
+        ],
+        "min": 0,
+        "max": "1023",
+        "x": 750,
+        "y": 270,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f007abb55072ed03",
+        "type": "ui-gauge",
+        "z": "543f4ba6265dcfb2",
+        "name": "🪣 Tank",
+        "group": "ui_group_sensors",
+        "order": 5,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-tank",
+        "gstyle": "needle",
+        "title": "Tanque",
+        "units": "%",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#f44336"
+            },
+            {
+                "from": "20",
+                "color": "#ff9800"
+            },
+            {
+                "from": "40",
+                "color": "#2196f3"
+            }
+        ],
+        "min": 0,
+        "max": "100",
+        "x": 750,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5af8a6b42253cede",
+        "type": "ui-chart",
+        "z": "543f4ba6265dcfb2",
+        "group": "ui_group_charts",
+        "name": "📈 Temp",
+        "label": "Temperatura",
+        "order": 1,
+        "chartType": "line",
+        "category": "sensorType",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "msg",
+        "xAxisType": "auto",
+        "yAxisLabel": "°C",
+        "ymin": "0",
+        "ymax": "50",
+        "action": "append",
+        "pointShape": "circle",
+        "pointRadius": 4,
+        "showLegend": false,
+        "removeOlder": 1,
+        "removeOlderUnit": "3600",
+        "colors": [
+            "#f44336"
+        ],
+        "width": 4,
+        "height": 4,
+        "x": 930,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "00437a6c21370b11",
+        "type": "ui-chart",
+        "z": "543f4ba6265dcfb2",
+        "group": "ui_group_charts",
+        "name": "📈 Hum",
+        "label": "Humedad",
+        "order": 2,
+        "chartType": "line",
+        "category": "sensorType",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "msg",
+        "xAxisType": "auto",
+        "yAxisLabel": "%",
+        "ymin": "0",
+        "ymax": "100",
+        "action": "append",
+        "pointShape": "circle",
+        "pointRadius": 4,
+        "showLegend": false,
+        "removeOlder": 1,
+        "removeOlderUnit": "3600",
+        "colors": [
+            "#2196f3"
+        ],
+        "width": 4,
+        "height": 4,
+        "x": 930,
+        "y": 170,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "87f5a52d80c9b1b3",
+        "type": "ui-chart",
+        "z": "543f4ba6265dcfb2",
+        "group": "ui_group_charts",
+        "name": "📈 Soil",
+        "label": "Suelo",
+        "order": 3,
+        "chartType": "line",
+        "category": "sensorType",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "msg",
+        "xAxisType": "auto",
+        "yAxisLabel": "%",
+        "ymin": "0",
+        "ymax": "100",
+        "action": "append",
+        "pointShape": "circle",
+        "pointRadius": 4,
+        "showLegend": false,
+        "removeOlder": 1,
+        "removeOlderUnit": "3600",
+        "colors": [
+            "#795548"
+        ],
+        "width": 4,
+        "height": 4,
+        "x": 930,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a2d4b80b8c858b47",
+        "type": "ui-chart",
+        "z": "543f4ba6265dcfb2",
+        "group": "ui_group_charts",
+        "name": "📈 Light",
+        "label": "Luz",
+        "order": 4,
+        "chartType": "line",
+        "category": "sensorType",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "msg",
+        "xAxisType": "auto",
+        "yAxisLabel": "ADC",
+        "ymin": "0",
+        "ymax": "1023",
+        "action": "append",
+        "pointShape": "circle",
+        "pointRadius": 4,
+        "showLegend": false,
+        "removeOlder": 1,
+        "removeOlderUnit": "3600",
+        "colors": [
+            "#ffc107"
+        ],
+        "width": 4,
+        "height": 4,
+        "x": 930,
+        "y": 270,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2a8ee0ea55a42c7a",
+        "type": "ui-chart",
+        "z": "543f4ba6265dcfb2",
+        "group": "ui_group_charts",
+        "name": "📈 Tank",
+        "label": "Tanque",
+        "order": 5,
+        "chartType": "line",
+        "category": "sensorType",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "msg",
+        "xAxisType": "auto",
+        "yAxisLabel": "%",
+        "ymin": "0",
+        "ymax": "100",
+        "action": "append",
+        "pointShape": "circle",
+        "pointRadius": 4,
+        "showLegend": false,
+        "removeOlder": 1,
+        "removeOlderUnit": "3600",
+        "colors": [
+            "#00bcd4"
+        ],
+        "width": 4,
+        "height": 4,
+        "x": 930,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "daaf0b0bf0536d13",
+        "type": "comment",
+        "z": "543f4ba6265dcfb2",
+        "name": "══════════ 🧠 REGLAS ══════════",
+        "x": 170,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "9b567363453a2073",
+        "type": "function",
+        "z": "543f4ba6265dcfb2",
+        "name": "🧠 Reglas Auto",
+        "func": "const now = Date.now();\n\n// Umbrales\nconst SOIL_DRY = 30;\nconst SOIL_OK = 50;\nconst LIGHT_LOW = 250;\nconst LIGHT_OK = 400;\nconst TANK_LOW = 15;\nconst TANK_WARN = 25;\nconst TEMP_HIGH = 35;\n\n// Cooldowns (ms)\nconst CD_ACTION = 60000;\nconst CD_ALERT = 120000;\n\n// Helpers\nfunction last(type) {\n    const v = flow.get(`last_${type}`);\n    return v ? v.value : null;\n}\n\nfunction canFire(key, cd) {\n    const lastTs = flow.get(key) || 0;\n    if (now - lastTs >= cd) {\n        flow.set(key, now);\n        return true;\n    }\n    return false;\n}\n\n// Estado\nlet irrigOn = flow.get(\"irrigationOn\") || false;\nlet lightOn = flow.get(\"lightOn\") || false;\n\n// Lecturas\nconst soil = last(\"soil\");\nconst tank = last(\"tank\");\nconst light = last(\"light\");\nconst temp = last(\"temp\");\n\nconst actions = [];\nconst alerts = [];\n\n// Regla 1: Riego\nif (soil !== null) {\n    if (soil < SOIL_DRY && !irrigOn) {\n        if (tank !== null && tank <= TANK_LOW) {\n            if (canFire(\"cd_nowater\", CD_ALERT)) {\n                alerts.push({ level: \"CRIT\", title: \"🚨 SIN AGUA\", msg: `Suelo seco (${soil}%) pero tanque vacío (${tank}%)` });\n            }\n        } else if (canFire(\"cd_irrig_on\", CD_ACTION)) {\n            irrigOn = true;\n            flow.set(\"irrigationOn\", true);\n            actions.push({ action: \"irrigation\", state: \"ON\", soil, tank });\n            alerts.push({ level: \"INFO\", title: \"💧 RIEGO ON\", msg: `Suelo seco (${soil}%) - Activando riego` });\n        }\n    } else if (soil >= SOIL_OK && irrigOn && canFire(\"cd_irrig_off\", CD_ACTION)) {\n        irrigOn = false;\n        flow.set(\"irrigationOn\", false);\n        actions.push({ action: \"irrigation\", state: \"OFF\", soil });\n    }\n}\n\n// Regla 2: Luz\nif (light !== null) {\n    if (light < LIGHT_LOW && !lightOn && canFire(\"cd_light_on\", CD_ACTION)) {\n        lightOn = true;\n        flow.set(\"lightOn\", true);\n        actions.push({ action: \"light\", state: \"ON\", light });\n        alerts.push({ level: \"INFO\", title: \"💡 LUZ ON\", msg: `Luz baja (${light} ADC)` });\n    } else if (light >= LIGHT_OK && lightOn && canFire(\"cd_light_off\", CD_ACTION)) {\n        lightOn = false;\n        flow.set(\"lightOn\", false);\n        actions.push({ action: \"light\", state: \"OFF\", light });\n    }\n}\n\n// Regla 3: Tanque bajo\nif (tank !== null && tank <= TANK_WARN && canFire(\"cd_tank\", CD_ALERT)) {\n    const lvl = tank <= TANK_LOW ? \"CRIT\" : \"WARN\";\n    alerts.push({ level: lvl, title: \"🪣 TANQUE BAJO\", msg: `Nivel: ${tank}%` });\n}\n\n// Regla 4: Temp alta\nif (temp !== null && temp >= TEMP_HIGH && canFire(\"cd_temp\", CD_ALERT)) {\n    alerts.push({ level: \"WARN\", title: \"🌡️ TEMP ALTA\", msg: `Temperatura: ${temp}°C` });\n}\n\n// Salidas\nconst outActions = actions.length ? { topic: \"greenhouse/actions\", payload: actions } : null;\nconst outAlerts = alerts.length ? { topic: \"greenhouse/alerts\", payload: alerts } : null;\n\n// Update status display\nif (actions.length) {\n    flow.set(\"lastStatus\", { irrigation: irrigOn, light: lightOn });\n}\n\nreturn [outActions, outAlerts];",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "flow.set(\"irrigationOn\", false);\nflow.set(\"lightOn\", false);",
+        "finalize": "",
+        "libs": [],
+        "x": 160,
+        "y": 440,
+        "wires": [
+            [
+                "a29f9aac8b9cd245",
+                "901aa17d9146ea51"
+            ],
+            [
+                "6ed6cfc42e86dd53",
+                "29b661ae2d86f070"
+            ]
+        ]
+    },
+    {
+        "id": "a29f9aac8b9cd245",
+        "type": "mqtt out",
+        "z": "543f4ba6265dcfb2",
+        "name": "📤 Actions",
+        "topic": "",
+        "qos": "1",
+        "retain": "false",
+        "broker": "dcc2accf755af92f",
+        "x": 370,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "6ed6cfc42e86dd53",
+        "type": "mqtt out",
+        "z": "543f4ba6265dcfb2",
+        "name": "📤 Alerts",
+        "topic": "",
+        "qos": "1",
+        "retain": "false",
+        "broker": "dcc2accf755af92f",
+        "x": 360,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "901aa17d9146ea51",
+        "type": "function",
+        "z": "543f4ba6265dcfb2",
+        "name": "🔄 Status",
+        "func": "const irrigOn = flow.get(\"irrigationOn\") || false;\nconst lightOn = flow.get(\"lightOn\") || false;\n\nreturn {\n    payload: {\n        irrigation: irrigOn ? \"🟢 ON\" : \"⚪ OFF\",\n        light: lightOn ? \"🟢 ON\" : \"⚪ OFF\"\n    }\n};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 380,
+        "wires": [
+            [
+                "9fe8153ac6fbd43d",
+                "262ff7f6ce18bdce"
+            ]
+        ]
+    },
+    {
+        "id": "9fe8153ac6fbd43d",
+        "type": "ui-text",
+        "z": "543f4ba6265dcfb2",
+        "group": "ui_group_status",
+        "order": 1,
+        "width": 3,
+        "height": 2,
+        "name": "Riego",
+        "label": "💧 Riego",
+        "format": "{{msg.payload.irrigation}}",
+        "layout": "row-center",
+        "style": false,
+        "font": "",
+        "color": "#2196f3",
+        "x": 550,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "262ff7f6ce18bdce",
+        "type": "ui-text",
+        "z": "543f4ba6265dcfb2",
+        "group": "ui_group_status",
+        "order": 2,
+        "width": 3,
+        "height": 2,
+        "name": "Luz",
+        "label": "💡 Luz",
+        "format": "{{msg.payload.light}}",
+        "layout": "row-center",
+        "style": false,
+        "font": "",
+        "color": "#ffc107",
+        "x": 550,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "e99391cb07ab130b",
+        "type": "comment",
+        "z": "543f4ba6265dcfb2",
+        "name": "══════════ 📊 THINGSPEAK ══════════",
+        "x": 190,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "cdba7ae694a5bbf4",
+        "type": "join",
+        "z": "543f4ba6265dcfb2",
+        "name": "📦 Agrupar 5 sensores",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "sensorType",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "5",
+        "count": "5",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 200,
+        "y": 580,
+        "wires": [
+            [
+                "47c6c80ea59f838a"
+            ]
+        ]
+    },
+    {
+        "id": "47c6c80ea59f838a",
+        "type": "function",
+        "z": "543f4ba6265dcfb2",
+        "name": "📊 Format ThingSpeak",
+        "func": "// Rate limiting: mínimo 15s entre envíos\nconst now = Date.now();\nconst lastSent = flow.get(\"ts_lastSent\") || 0;\n\nif (now - lastSent < 15000) {\n    return null;\n}\nflow.set(\"ts_lastSent\", now);\n\nconst p = msg.payload;\n\n// Mapear a fields de ThingSpeak\nconst data = {\n    field1: p.temp,\n    field2: p.hum,\n    field3: p.soil,\n    field4: p.light,\n    field5: p.tank\n};\n\nreturn { payload: data };",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 580,
+        "wires": [
+            [
+                "75fd3c7978d165f0",
+                "175bf6d7a9129e49"
+            ]
+        ]
+    },
+    {
+        "id": "75fd3c7978d165f0",
+        "type": "http request",
+        "z": "543f4ba6265dcfb2",
+        "name": "📤 ThingSpeak",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "body",
+        "url": "https://api.thingspeak.com/update?api_key=EQFBWOLS0VDKMCQ5",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 680,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "175bf6d7a9129e49",
+        "type": "debug",
+        "z": "543f4ba6265dcfb2",
+        "name": "ThingSpeak data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 680,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "c39d48f61648db10",
+        "type": "comment",
+        "z": "543f4ba6265dcfb2",
+        "name": "══════════ 📱 TELEGRAM ══════════",
+        "x": 180,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "29b661ae2d86f070",
+        "type": "function",
+        "z": "543f4ba6265dcfb2",
+        "name": "📱 Format Telegram",
+        "func": "// ⚠️ PON TU CHAT ID AQUÍ\nconst CHAT_ID = \"7906886061\";\n\nconst alerts = Array.isArray(msg.payload) ? msg.payload : [msg.payload];\n\nconst out = [];\nfor (const a of alerts) {\n    const emoji = a.level === \"CRIT\" ? \"🚨\" : a.level === \"WARN\" ? \"⚠️\" : \"ℹ️\";\n    const text = `${emoji} *${a.title}*\\n\\n${a.msg}\\n\\n🕐 ${new Date().toLocaleString('es-ES')}`;\n    \n    out.push({\n        payload: {\n            chatId: CHAT_ID,\n            type: \"message\",\n            content: text,\n            options: { parse_mode: \"Markdown\" }\n        }\n    });\n}\n\nreturn [out];",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 190,
+        "y": 740,
+        "wires": [
+            [
+                "7ec60325c8126bcf"
+            ]
+        ]
+    },
+    {
+        "id": "7ec60325c8126bcf",
+        "type": "telegram sender",
+        "z": "543f4ba6265dcfb2",
+        "name": "📤 Telegram",
+        "bot": "telegram_bot_config",
+        "haserroroutput": true,
+        "outputs": 2,
+        "x": 410,
+        "y": 740,
+        "wires": [
+            [],
+            [
+                "645a51f8577eedb8"
+            ]
+        ]
+    },
+    {
+        "id": "645a51f8577eedb8",
+        "type": "debug",
+        "z": "543f4ba6265dcfb2",
+        "name": "Telegram Error",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 620,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "9b2c6673307d2262",
         "type": "telegram receiver",
-        "z": "89a076a5a8875485",
-        "name": "",
-        "bot": "59e62491c0233b71",
+        "z": "543f4ba6265dcfb2",
+        "name": "📥 Commands",
+        "bot": "telegram_bot_config",
         "saveDataDir": "",
         "filterCommands": false,
         "hasinput": false,
         "inputs": 0,
         "handleallupdates": false,
-        "x": 590,
-        "y": 440,
+        "x": 170,
+        "y": 800,
         "wires": [
-            [],
             [
-                "3093224483c5ce2f"
-            ]
-        ]
-    },
-    {
-        "id": "f540bea440ef489c",
-        "type": "telegram sender",
-        "z": "89a076a5a8875485",
-        "name": "",
-        "bot": "59e62491c0233b71",
-        "haserroroutput": false,
-        "outputs": 1,
-        "x": 990,
-        "y": 440,
-        "wires": [
+                "8bd1cae43d967b20"
+            ],
             []
         ]
     },
     {
-        "id": "3093224483c5ce2f",
+        "id": "8bd1cae43d967b20",
         "type": "function",
-        "z": "89a076a5a8875485",
-        "name": "function 3",
-        "func": "msg.payload = {\n  chatId: msg.payload.chatId,\n  type: \"message\",\n  content: \"🤖 Bot del invernadero conectado correctamente\"\n};\nreturn msg;",
+        "z": "543f4ba6265dcfb2",
+        "name": "🤖 Commands",
+        "func": "const chatId = msg.payload.chatId;\nconst text = (msg.payload.content || \"\").toLowerCase().trim();\n\nlet response = \"\";\n\nswitch(text) {\n    case \"/start\":\n    case \"/help\":\n        response = \"🌱 *Greenhouse Bot*\\n\\n\" +\n            \"/status - Estado actual\\n\" +\n            \"/sensors - Valores sensores\\n\" +\n            \"/help - Ayuda\";\n        break;\n        \n    case \"/status\":\n        const irrigOn = flow.get(\"irrigationOn\") || false;\n        const lightOn = flow.get(\"lightOn\") || false;\n        response = \"⚡ *Estado*\\n\\n\" +\n            `💧 Riego: ${irrigOn ? \"🟢 ON\" : \"⚪ OFF\"}\\n` +\n            `💡 Luz: ${lightOn ? \"🟢 ON\" : \"⚪ OFF\"}`;\n        break;\n        \n    case \"/sensors\":\n        const temp = flow.get(\"last_temp\");\n        const hum = flow.get(\"last_hum\");\n        const soil = flow.get(\"last_soil\");\n        const light = flow.get(\"last_light\");\n        const tank = flow.get(\"last_tank\");\n        \n        response = \"📡 *Sensores*\\n\\n\" +\n            `🌡️ Temp: ${temp ? temp.value + \"°C\" : \"N/A\"}\\n` +\n            `💧 Hum: ${hum ? hum.value + \"%\" : \"N/A\"}\\n` +\n            `🌱 Suelo: ${soil ? soil.value + \"%\" : \"N/A\"}\\n` +\n            `☀️ Luz: ${light ? light.value + \" ADC\" : \"N/A\"}\\n` +\n            `🪣 Tanque: ${tank ? tank.value + \"%\" : \"N/A\"}`;\n        break;\n        \n    default:\n        if (text.startsWith(\"/\")) {\n            response = \"❓ Comando no reconocido. Usa /help\";\n        } else {\n            return null;\n        }\n}\n\nreturn {\n    payload: {\n        chatId: chatId,\n        type: \"message\",\n        content: response,\n        options: { parse_mode: \"Markdown\" }\n    }\n};",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 800,
-        "y": 440,
+        "x": 390,
+        "y": 800,
         "wires": [
             [
-                "f540bea440ef489c"
+                "7ec60325c8126bcf"
+            ]
+        ]
+    },
+    {
+        "id": "6312068daf70fade",
+        "type": "mqtt in",
+        "z": "543f4ba6265dcfb2",
+        "name": "📡 Telemetría",
+        "topic": "greenhouse/+/telemetry",
+        "qos": "1",
+        "datatype": "json",
+        "broker": "dcc2accf755af92f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 240,
+        "wires": [
+            [
+                "4801934cc21ea1d2",
+                "909b38766d25e9b8"
             ]
         ]
     }
