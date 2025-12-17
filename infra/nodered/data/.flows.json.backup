@@ -1,0 +1,89 @@
+[
+    {
+        "id": "6f27748f8640a0c6",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "6c935a19f2d331f4",
+        "type": "mqtt-broker",
+        "name": "Linux Fran",
+        "broker": "172.20.10.12",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "46ea805ba01866be",
+        "type": "mqtt out",
+        "z": "6f27748f8640a0c6",
+        "name": "",
+        "topic": "greenhouse/node3/light",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6c935a19f2d331f4",
+        "x": 810,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "e81f039175c0e0e1",
+        "type": "inject",
+        "z": "6f27748f8640a0c6",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "v": "{\"lux\": 250, \"ts\": 1730000000}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 460,
+        "y": 260,
+        "wires": [
+            [
+                "46ea805ba01866be"
+            ]
+        ]
+    }
+]
