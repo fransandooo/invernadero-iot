@@ -191,6 +191,11 @@
         "name": "Guardar últimas muestras",
         "func": "const node = msg.topic.split('/')[1];\nflow.set('last_'+node, msg.payload);\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
+        "noerr": 1,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
         "x": 560,
         "y": 480,
         "wires": [
@@ -240,8 +245,12 @@
         "name": "telemetry (debug)",
         "active": true,
         "tosidebar": true,
+        "console": false,
+        "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
         "x": 560,
         "y": 530,
         "wires": []
@@ -261,6 +270,150 @@
         "statusType": "auto",
         "x": 1110,
         "y": 520,
+        "wires": []
+    },
+    {
+        "id": "a2189d9d1c1be7aa",
+        "type": "inject",
+        "z": "tab_greenhouse_v01",
+        "name": "suelo seco",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "v": "{\"ts\":0,\"soil\":20,\"unit\":\"%\"}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 260,
+        "y": 280,
+        "wires": [
+            [
+                "aa67989a19ae3e37"
+            ]
+        ]
+    },
+    {
+        "id": "66dfed3102b20e3b",
+        "type": "inject",
+        "z": "tab_greenhouse_v01",
+        "name": "tanque OK",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "v": "{\"ts\":0,\"tank\":60,\"unit\":\"%\"}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 260,
+        "y": 180,
+        "wires": [
+            [
+                "6913752f0ae49411"
+            ]
+        ]
+    },
+    {
+        "id": "aa67989a19ae3e37",
+        "type": "mqtt out",
+        "z": "tab_greenhouse_v01",
+        "name": "",
+        "topic": "greenhouse/node4/telemetry",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6c935a19f2d331f4",
+        "x": 740,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "6913752f0ae49411",
+        "type": "mqtt out",
+        "z": "tab_greenhouse_v01",
+        "name": "",
+        "topic": "greenhouse/node2/telemetry",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6c935a19f2d331f4",
+        "x": 720,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "ba90a6e410226246",
+        "type": "inject",
+        "z": "tab_greenhouse_v01",
+        "name": "poca luz",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "v": "{\"ts\":0,\"light\":100,\"unit\":\"adc\"}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 260,
+        "y": 120,
+        "wires": [
+            [
+                "0201aaf27dedb361"
+            ]
+        ]
+    },
+    {
+        "id": "0201aaf27dedb361",
+        "type": "mqtt out",
+        "z": "tab_greenhouse_v01",
+        "name": "",
+        "topic": "greenhouse/node3/telemetry",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6c935a19f2d331f4",
+        "x": 720,
+        "y": 100,
         "wires": []
     }
 ]

@@ -8,6 +8,13 @@
         "env": []
     },
     {
+        "id": "tab_greenhouse_v01",
+        "type": "tab",
+        "label": "Greenhouse v0.1 (Sim + Rules)",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "6c935a19f2d331f4",
         "type": "mqtt-broker",
         "name": "Linux Fran",
@@ -37,6 +44,19 @@
         "willMsg": {},
         "userProps": "",
         "sessionExpiry": ""
+    },
+    {
+        "id": "broker_mosquitto_service",
+        "type": "mqtt-broker",
+        "name": "mosquitto (docker service)",
+        "broker": "mosquitto",
+        "port": "1883",
+        "clientid": "nodered-greenhouse",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true
     },
     {
         "id": "46ea805ba01866be",
@@ -85,5 +105,315 @@
                 "46ea805ba01866be"
             ]
         ]
+    },
+    {
+        "id": "inj_tick",
+        "type": "inject",
+        "z": "tab_greenhouse_v01",
+        "name": "Sim tick (cada 15s)",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "15",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 300,
+        "y": 370,
+        "wires": [
+            [
+                "fn_simulate"
+            ]
+        ]
+    },
+    {
+        "id": "fn_simulate",
+        "type": "function",
+        "z": "tab_greenhouse_v01",
+        "name": "Simular node1..4 (telemetry)",
+        "func": "const ts = Date.now();\nfunction clamp(v,min,max){return Math.max(min,Math.min(max,v));}\nfunction jitter(base, delta){return base + (Math.random()*2-1)*delta;}\n\n// Demo: valores realistas\nconst temp  = clamp(jitter(24, 2),  15, 40);\nconst hum   = clamp(jitter(55, 8),  20, 90);\nconst soil  = clamp(jitter(38, 10),  0, 100);\nconst tank  = clamp(jitter(45, 12),  0, 100);\nconst light = clamp(jitter(450, 180), 0, 1023);\n\nreturn [[\n  { topic:'greenhouse/node1/telemetry', payload:{ts, temp, hum} },\n  { topic:'greenhouse/node2/telemetry', payload:{ts, soil, unit:'%'} },\n  { topic:'greenhouse/node3/telemetry', payload:{ts, light, unit:'adc'} },\n  { topic:'greenhouse/node4/telemetry', payload:{ts, tank, unit:'%'} }\n]];",
+        "outputs": 1,
+        "x": 590,
+        "y": 370,
+        "wires": [
+            [
+                "mqtt_out_tele"
+            ]
+        ]
+    },
+    {
+        "id": "mqtt_out_tele",
+        "type": "mqtt out",
+        "z": "tab_greenhouse_v01",
+        "name": "Publish telemetry",
+        "topic": "",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6c935a19f2d331f4",
+        "x": 850,
+        "y": 370,
+        "wires": []
+    },
+    {
+        "id": "mqtt_in_tele",
+        "type": "mqtt in",
+        "z": "tab_greenhouse_v01",
+        "name": "Sub telemetría",
+        "topic": "greenhouse/+/telemetry",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "6c935a19f2d331f4",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 300,
+        "y": 480,
+        "wires": [
+            [
+                "fn_store_last",
+                "dbg_tele"
+            ]
+        ]
+    },
+    {
+        "id": "fn_store_last",
+        "type": "function",
+        "z": "tab_greenhouse_v01",
+        "name": "Guardar últimas muestras",
+        "func": "const node = msg.topic.split('/')[1];\nflow.set('last_'+node, msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 1,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 480,
+        "wires": [
+            [
+                "fn_rules"
+            ]
+        ]
+    },
+    {
+        "id": "fn_rules",
+        "type": "function",
+        "z": "tab_greenhouse_v01",
+        "name": "Reglas AUTO (riego/luz) + alertas",
+        "func": "const ts = Date.now();\n\n// Decisiones v0.1 (ajustables luego con el equipo)\nconst SOIL_DRY  = 30;\nconst TANK_LOW  = 15;\nconst LIGHT_LOW = 300;\n\n// Modo (por defecto AUTO)\nconst mode = flow.get('mode') || 'AUTO';\n\nconst soil  = (flow.get('last_node2')||{}).soil;\nconst tank  = (flow.get('last_node4')||{}).tank;\nconst light = (flow.get('last_node3')||{}).light;\n\nlet out = [];\nif(mode === 'AUTO'){\n  // RIEGO\n  if(typeof soil === 'number' && typeof tank === 'number'){\n    if(soil < SOIL_DRY && tank > TANK_LOW){\n      out.push({\n        topic:'greenhouse/node5/cmd/irrigation',\n        payload:{ts, state:'ON', duration_s:10, reason:'soil_low', source:'nodered'}\n      });\n    } else if(soil < SOIL_DRY && tank <= TANK_LOW){\n      out.push({\n        topic:'greenhouse/alerts',\n        payload:{ts, level:'WARN', msg:'Suelo seco pero tanque bajo: no se riega', context:{soil, tank}}\n      });\n    }\n  }\n\n  // LUZ\n  if(typeof light === 'number'){\n    if(light < LIGHT_LOW){\n      out.push({\n        topic:'greenhouse/node5/cmd/light',\n        payload:{ts, state:'ON', reason:'low_light', source:'nodered'}\n      });\n    }\n  }\n}\n\nreturn [out.length ? out : null];",
+        "outputs": 1,
+        "x": 820,
+        "y": 480,
+        "wires": [
+            [
+                "mqtt_out_cmds",
+                "dbg_cmds"
+            ]
+        ]
+    },
+    {
+        "id": "mqtt_out_cmds",
+        "type": "mqtt out",
+        "z": "tab_greenhouse_v01",
+        "name": "Publish CMDs / alerts",
+        "topic": "",
+        "qos": "1",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6c935a19f2d331f4",
+        "x": 1110,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "dbg_tele",
+        "type": "debug",
+        "z": "tab_greenhouse_v01",
+        "name": "telemetry (debug)",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 530,
+        "wires": []
+    },
+    {
+        "id": "dbg_cmds",
+        "type": "debug",
+        "z": "tab_greenhouse_v01",
+        "name": "cmd/alerts (debug)",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1110,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "a2189d9d1c1be7aa",
+        "type": "inject",
+        "z": "tab_greenhouse_v01",
+        "name": "suelo seco",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "v": "{\"ts\":0,\"soil\":20,\"unit\":\"%\"}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 260,
+        "y": 280,
+        "wires": [
+            [
+                "aa67989a19ae3e37"
+            ]
+        ]
+    },
+    {
+        "id": "66dfed3102b20e3b",
+        "type": "inject",
+        "z": "tab_greenhouse_v01",
+        "name": "tanque OK",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "msg",
+                "v": "{\"ts\":0,\"tank\":60,\"unit\":\"%\"}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 260,
+        "y": 180,
+        "wires": [
+            [
+                "6913752f0ae49411"
+            ]
+        ]
+    },
+    {
+        "id": "aa67989a19ae3e37",
+        "type": "mqtt out",
+        "z": "tab_greenhouse_v01",
+        "name": "",
+        "topic": "greenhouse/node4/telemetry",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6c935a19f2d331f4",
+        "x": 740,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "6913752f0ae49411",
+        "type": "mqtt out",
+        "z": "tab_greenhouse_v01",
+        "name": "",
+        "topic": "greenhouse/node2/telemetry",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6c935a19f2d331f4",
+        "x": 720,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "ba90a6e410226246",
+        "type": "inject",
+        "z": "tab_greenhouse_v01",
+        "name": "poca luz",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "v": "{\"ts\":0,\"light\":100,\"unit\":\"adc\"}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 260,
+        "y": 120,
+        "wires": [
+            [
+                "0201aaf27dedb361"
+            ]
+        ]
+    },
+    {
+        "id": "0201aaf27dedb361",
+        "type": "mqtt out",
+        "z": "tab_greenhouse_v01",
+        "name": "",
+        "topic": "greenhouse/node3/telemetry",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6c935a19f2d331f4",
+        "x": 720,
+        "y": 100,
+        "wires": []
     }
 ]
