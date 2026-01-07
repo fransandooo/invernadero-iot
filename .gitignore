@@ -37,4 +37,3 @@ infra/mosquitto/log
 .env
 /infra/matlab/secrets.json
 *.asv
-*.mlx
