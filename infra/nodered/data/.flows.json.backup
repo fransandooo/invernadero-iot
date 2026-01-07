@@ -22,6 +22,14 @@
         "info": "Sistema de invernadero inteligente"
     },
     {
+        "id": "f4d1039b513810a4",
+        "type": "tab",
+        "label": "Flujo prueba",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "3a35c9c592e34af5",
         "type": "ui-base",
         "name": "My Dashboard",
@@ -827,6 +835,8 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
         "x": 360,
         "y": 300,
         "wires": []
@@ -926,7 +936,7 @@
         "valueType": "msg",
         "width": 3,
         "height": 3,
-        "gtype": "gauge-battery",
+        "gtype": "gauge-half",
         "gstyle": "needle",
         "title": "Temperatura",
         "alwaysShowTitle": false,
@@ -1631,5 +1641,1106 @@
                 "909b38766d25e9b8"
             ]
         ]
+    },
+    {
+        "id": "02bc45eac5ba093d",
+        "type": "comment",
+        "z": "f4d1039b513810a4",
+        "name": "══════════ 📥 ENTRADA MQTT ══════════",
+        "x": 280,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "c733ae3b7454be09",
+        "type": "function",
+        "z": "f4d1039b513810a4",
+        "name": "🔄 Parse + Store",
+        "func": "const p = msg.payload;\nif (!p || !p.type) return null;\n\n// Guardar último valor\nflow.set(`last_${p.type}`, { ts: p.ts, value: p.value });\n\n// Preparar para gauges (solo valor)\nmsg.payload = p.value;\nmsg.sensorType = p.type;\nmsg.timestamp = p.ts;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1070,
+        "y": 280,
+        "wires": [
+            [
+                "634aa00d0919a713",
+                "df7e15abcf3d5013",
+                "9bdb2090a80cee63"
+            ]
+        ]
+    },
+    {
+        "id": "634aa00d0919a713",
+        "type": "switch",
+        "z": "f4d1039b513810a4",
+        "name": "🔀 Tipo",
+        "property": "sensorType",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "temp",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "hum",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "soil",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "light",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "tank",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 5,
+        "x": 1300,
+        "y": 280,
+        "wires": [
+            [
+                "a7f7024b349871ba",
+                "2a4063262ffc395d"
+            ],
+            [
+                "0c94f4431bcdaf0c",
+                "7baef81dab6d24e6"
+            ],
+            [
+                "c812c289e1fe0169",
+                "3b8f9991bf833556"
+            ],
+            [
+                "d8659b882a451296",
+                "553952c8cce5dc97"
+            ],
+            [
+                "fa2501fca12d4f24",
+                "9456489061cd3906"
+            ]
+        ]
+    },
+    {
+        "id": "a7f7024b349871ba",
+        "type": "ui-gauge",
+        "z": "f4d1039b513810a4",
+        "name": "🌡️ Temp",
+        "group": "ui_group_sensors",
+        "order": 1,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Temperatura",
+        "alwaysShowTitle": false,
+        "units": "°C",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#2196f3",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "18",
+                "color": "#4caf50",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "30",
+                "color": "#ff9800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "38",
+                "color": "#f44336",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "50",
+        "sizeThickness": "",
+        "sizeGap": "",
+        "sizeKeyThickness": "",
+        "className": "",
+        "x": 1520,
+        "y": 170,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0c94f4431bcdaf0c",
+        "type": "ui-gauge",
+        "z": "f4d1039b513810a4",
+        "name": "💧 Hum",
+        "group": "ui_group_sensors",
+        "order": 2,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Humedad Amb",
+        "units": "%",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#ff9800"
+            },
+            {
+                "from": "30",
+                "color": "#4caf50"
+            },
+            {
+                "from": "70",
+                "color": "#2196f3"
+            }
+        ],
+        "min": 0,
+        "max": "100",
+        "x": 1520,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c812c289e1fe0169",
+        "type": "ui-gauge",
+        "z": "f4d1039b513810a4",
+        "name": "🌱 Soil",
+        "group": "ui_group_sensors",
+        "order": 3,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Humedad Suelo",
+        "units": "%",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#f44336"
+            },
+            {
+                "from": "30",
+                "color": "#ff9800"
+            },
+            {
+                "from": "50",
+                "color": "#4caf50"
+            }
+        ],
+        "min": 0,
+        "max": "100",
+        "x": 1520,
+        "y": 270,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d8659b882a451296",
+        "type": "ui-gauge",
+        "z": "f4d1039b513810a4",
+        "name": "☀️ Light",
+        "group": "ui_group_sensors",
+        "order": 4,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Luz",
+        "units": "ADC",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#37474f"
+            },
+            {
+                "from": "300",
+                "color": "#ffeb3b"
+            },
+            {
+                "from": "700",
+                "color": "#fff59d"
+            }
+        ],
+        "min": 0,
+        "max": "1023",
+        "x": 1520,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fa2501fca12d4f24",
+        "type": "ui-gauge",
+        "z": "f4d1039b513810a4",
+        "name": "🪣 Tank",
+        "group": "ui_group_sensors",
+        "order": 5,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-tank",
+        "gstyle": "needle",
+        "title": "Tanque",
+        "units": "%",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#f44336"
+            },
+            {
+                "from": "20",
+                "color": "#ff9800"
+            },
+            {
+                "from": "40",
+                "color": "#2196f3"
+            }
+        ],
+        "min": 0,
+        "max": "100",
+        "x": 1520,
+        "y": 370,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2a4063262ffc395d",
+        "type": "ui-chart",
+        "z": "f4d1039b513810a4",
+        "group": "ui_group_charts",
+        "name": "📈 Temp",
+        "label": "Temperatura",
+        "order": 1,
+        "chartType": "line",
+        "category": "sensorType",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "msg",
+        "xAxisType": "auto",
+        "yAxisLabel": "°C",
+        "ymin": "0",
+        "ymax": "50",
+        "action": "append",
+        "pointShape": "circle",
+        "pointRadius": 4,
+        "showLegend": false,
+        "removeOlder": 1,
+        "removeOlderUnit": "3600",
+        "colors": [
+            "#f44336"
+        ],
+        "width": 4,
+        "height": 4,
+        "x": 1700,
+        "y": 170,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7baef81dab6d24e6",
+        "type": "ui-chart",
+        "z": "f4d1039b513810a4",
+        "group": "ui_group_charts",
+        "name": "📈 Hum",
+        "label": "Humedad",
+        "order": 2,
+        "chartType": "line",
+        "category": "sensorType",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "msg",
+        "xAxisType": "auto",
+        "yAxisLabel": "%",
+        "ymin": "0",
+        "ymax": "100",
+        "action": "append",
+        "pointShape": "circle",
+        "pointRadius": 4,
+        "showLegend": false,
+        "removeOlder": 1,
+        "removeOlderUnit": "3600",
+        "colors": [
+            "#2196f3"
+        ],
+        "width": 4,
+        "height": 4,
+        "x": 1700,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3b8f9991bf833556",
+        "type": "ui-chart",
+        "z": "f4d1039b513810a4",
+        "group": "ui_group_charts",
+        "name": "📈 Soil",
+        "label": "Suelo",
+        "order": 3,
+        "chartType": "line",
+        "category": "sensorType",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "msg",
+        "xAxisType": "auto",
+        "yAxisLabel": "%",
+        "ymin": "0",
+        "ymax": "100",
+        "action": "append",
+        "pointShape": "circle",
+        "pointRadius": 4,
+        "showLegend": false,
+        "removeOlder": 1,
+        "removeOlderUnit": "3600",
+        "colors": [
+            "#795548"
+        ],
+        "width": 4,
+        "height": 4,
+        "x": 1700,
+        "y": 270,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "553952c8cce5dc97",
+        "type": "ui-chart",
+        "z": "f4d1039b513810a4",
+        "group": "ui_group_charts",
+        "name": "📈 Light",
+        "label": "Luz",
+        "order": 4,
+        "chartType": "line",
+        "category": "sensorType",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "msg",
+        "xAxisType": "auto",
+        "yAxisLabel": "ADC",
+        "ymin": "0",
+        "ymax": "1023",
+        "action": "append",
+        "pointShape": "circle",
+        "pointRadius": 4,
+        "showLegend": false,
+        "removeOlder": 1,
+        "removeOlderUnit": "3600",
+        "colors": [
+            "#ffc107"
+        ],
+        "width": 4,
+        "height": 4,
+        "x": 1700,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9456489061cd3906",
+        "type": "ui-chart",
+        "z": "f4d1039b513810a4",
+        "group": "ui_group_charts",
+        "name": "📈 Tank",
+        "label": "Tanque",
+        "order": 5,
+        "chartType": "line",
+        "category": "sensorType",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "property",
+        "xAxisType": "auto",
+        "yAxisLabel": "%",
+        "yAxisPropertyType": "property",
+        "ymin": "0",
+        "ymax": "100",
+        "action": "append",
+        "pointShape": "circle",
+        "pointRadius": 4,
+        "showLegend": false,
+        "removeOlder": 1,
+        "removeOlderUnit": "3600",
+        "colors": [
+            "#00bcd4"
+        ],
+        "width": 4,
+        "height": 4,
+        "x": 1700,
+        "y": 370,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "848726d92cd573dc",
+        "type": "comment",
+        "z": "f4d1039b513810a4",
+        "name": "══════════ 🧠 REGLAS ══════════",
+        "x": 1410,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "9bdb2090a80cee63",
+        "type": "function",
+        "z": "f4d1039b513810a4",
+        "name": "🧠 Reglas Auto",
+        "func": "const now = Date.now();\n\n// Umbrales\nconst SOIL_DRY = 30;\nconst SOIL_OK = 50;\nconst LIGHT_LOW = 250;\nconst LIGHT_OK = 400;\nconst TANK_LOW = 15;\nconst TANK_WARN = 25;\nconst TEMP_HIGH = 35;\n\n// Cooldowns (ms)\nconst CD_ACTION = 60000;\nconst CD_ALERT = 120000;\n\n// Helpers\nfunction last(type) {\n    const v = flow.get(`last_${type}`);\n    return v ? v.value : null;\n}\n\nfunction canFire(key, cd) {\n    const lastTs = flow.get(key) || 0;\n    if (now - lastTs >= cd) {\n        flow.set(key, now);\n        return true;\n    }\n    return false;\n}\n\n// Estado\nlet irrigOn = flow.get(\"irrigationOn\") || false;\nlet lightOn = flow.get(\"lightOn\") || false;\n\n// Lecturas\nconst soil = last(\"soil\");\nconst tank = last(\"tank\");\nconst light = last(\"light\");\nconst temp = last(\"temp\");\n\nconst actions = [];\nconst alerts = [];\n\n// Regla 1: Riego\nif (soil !== null) {\n    if (soil < SOIL_DRY && !irrigOn) {\n        if (tank !== null && tank <= TANK_LOW) {\n            if (canFire(\"cd_nowater\", CD_ALERT)) {\n                alerts.push({ level: \"CRIT\", title: \"🚨 SIN AGUA\", msg: `Suelo seco (${soil}%) pero tanque vacío (${tank}%)` });\n            }\n        } else if (canFire(\"cd_irrig_on\", CD_ACTION)) {\n            irrigOn = true;\n            flow.set(\"irrigationOn\", true);\n            actions.push({ action: \"irrigation\", state: \"ON\", soil, tank });\n            alerts.push({ level: \"INFO\", title: \"💧 RIEGO ON\", msg: `Suelo seco (${soil}%) - Activando riego` });\n        }\n    } else if (soil >= SOIL_OK && irrigOn && canFire(\"cd_irrig_off\", CD_ACTION)) {\n        irrigOn = false;\n        flow.set(\"irrigationOn\", false);\n        actions.push({ action: \"irrigation\", state: \"OFF\", soil });\n    }\n}\n\n// Regla 2: Luz\nif (light !== null) {\n    if (light < LIGHT_LOW && !lightOn && canFire(\"cd_light_on\", CD_ACTION)) {\n        lightOn = true;\n        flow.set(\"lightOn\", true);\n        actions.push({ action: \"light\", state: \"ON\", light });\n        alerts.push({ level: \"INFO\", title: \"💡 LUZ ON\", msg: `Luz baja (${light} ADC)` });\n    } else if (light >= LIGHT_OK && lightOn && canFire(\"cd_light_off\", CD_ACTION)) {\n        lightOn = false;\n        flow.set(\"lightOn\", false);\n        actions.push({ action: \"light\", state: \"OFF\", light });\n    }\n}\n\n// Regla 3: Tanque bajo\nif (tank !== null && tank <= TANK_WARN && canFire(\"cd_tank\", CD_ALERT)) {\n    const lvl = tank <= TANK_LOW ? \"CRIT\" : \"WARN\";\n    alerts.push({ level: lvl, title: \"🪣 TANQUE BAJO\", msg: `Nivel: ${tank}%` });\n}\n\n// Regla 4: Temp alta\nif (temp !== null && temp >= TEMP_HIGH && canFire(\"cd_temp\", CD_ALERT)) {\n    alerts.push({ level: \"WARN\", title: \"🌡️ TEMP ALTA\", msg: `Temperatura: ${temp}°C` });\n}\n\n// Salidas\nconst outActions = actions.length ? { topic: \"greenhouse/actions\", payload: actions } : null;\nconst outAlerts = alerts.length ? { topic: \"greenhouse/alerts\", payload: alerts } : null;\n\n// Update status display\nif (actions.length) {\n    flow.set(\"lastStatus\", { irrigation: irrigOn, light: lightOn });\n}\n\nreturn [outActions, outAlerts];",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "flow.set(\"irrigationOn\", false);\nflow.set(\"lightOn\", false);",
+        "finalize": "",
+        "libs": [],
+        "x": 1320,
+        "y": 560,
+        "wires": [
+            [
+                "f2ff969f19e504dd",
+                "11c367ba29f24f90"
+            ],
+            [
+                "cb13be096c610a37",
+                "f0434c874c309aa2"
+            ]
+        ]
+    },
+    {
+        "id": "f2ff969f19e504dd",
+        "type": "mqtt out",
+        "z": "f4d1039b513810a4",
+        "name": "📤 Actions",
+        "topic": "",
+        "qos": "1",
+        "retain": "false",
+        "broker": "dcc2accf755af92f",
+        "x": 1530,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "cb13be096c610a37",
+        "type": "mqtt out",
+        "z": "f4d1039b513810a4",
+        "name": "📤 Alerts",
+        "topic": "",
+        "qos": "1",
+        "retain": "false",
+        "broker": "dcc2accf755af92f",
+        "x": 1520,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "11c367ba29f24f90",
+        "type": "function",
+        "z": "f4d1039b513810a4",
+        "name": "🔄 Status",
+        "func": "const irrigOn = flow.get(\"irrigationOn\") || false;\nconst lightOn = flow.get(\"lightOn\") || false;\n\nreturn {\n    payload: {\n        irrigation: irrigOn ? \"🟢 ON\" : \"⚪ OFF\",\n        light: lightOn ? \"🟢 ON\" : \"⚪ OFF\"\n    }\n};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1520,
+        "y": 500,
+        "wires": [
+            [
+                "bf27a21dda200cfb",
+                "430b91a8ecbc8276"
+            ]
+        ]
+    },
+    {
+        "id": "bf27a21dda200cfb",
+        "type": "ui-text",
+        "z": "f4d1039b513810a4",
+        "group": "ui_group_status",
+        "order": 1,
+        "width": 3,
+        "height": 2,
+        "name": "Riego",
+        "label": "💧 Riego",
+        "format": "{{msg.payload.irrigation}}",
+        "layout": "row-center",
+        "style": false,
+        "font": "",
+        "color": "#2196f3",
+        "x": 1710,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "430b91a8ecbc8276",
+        "type": "ui-text",
+        "z": "f4d1039b513810a4",
+        "group": "ui_group_status",
+        "order": 2,
+        "width": 3,
+        "height": 2,
+        "name": "Luz",
+        "label": "💡 Luz",
+        "format": "{{msg.payload.light}}",
+        "layout": "row-center",
+        "style": false,
+        "font": "",
+        "color": "#ffc107",
+        "x": 1710,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "07aa0305204af30c",
+        "type": "comment",
+        "z": "f4d1039b513810a4",
+        "name": "══════════ 📊 THINGSPEAK ══════════",
+        "x": 1430,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "df7e15abcf3d5013",
+        "type": "join",
+        "z": "f4d1039b513810a4",
+        "name": "📦 Agrupar 5 sensores",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "sensorType",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "5",
+        "count": "5",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 1340,
+        "y": 760,
+        "wires": [
+            [
+                "07ac39dee47b6a54"
+            ]
+        ]
+    },
+    {
+        "id": "07ac39dee47b6a54",
+        "type": "function",
+        "z": "f4d1039b513810a4",
+        "name": "📊 Format ThingSpeak",
+        "func": "// Rate limiting: mínimo 15s entre envíos\nconst now = Date.now();\nconst lastSent = flow.get(\"ts_lastSent\") || 0;\n\nif (now - lastSent < 15000) {\n    return null;\n}\nflow.set(\"ts_lastSent\", now);\n\nconst p = msg.payload;\n\n// Mapear a fields de ThingSpeak\nconst data = {\n    field1: p.temp,\n    field2: p.hum,\n    field3: p.soil,\n    field4: p.light,\n    field5: p.tank\n};\n\nreturn { payload: data };",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1580,
+        "y": 760,
+        "wires": [
+            [
+                "b385ca4c1e5815f5",
+                "ddb8f67a39423962"
+            ]
+        ]
+    },
+    {
+        "id": "b385ca4c1e5815f5",
+        "type": "http request",
+        "z": "f4d1039b513810a4",
+        "name": "📤 ThingSpeak",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "body",
+        "url": "https://api.thingspeak.com/update?api_key=EQFBWOLS0VDKMCQ5",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 1820,
+        "y": 760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ddb8f67a39423962",
+        "type": "debug",
+        "z": "f4d1039b513810a4",
+        "name": "ThingSpeak data",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 1820,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "0f87da3fd1c3fcc0",
+        "type": "comment",
+        "z": "f4d1039b513810a4",
+        "name": "══════════ 📱 TELEGRAM ══════════",
+        "x": 1560,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "f0434c874c309aa2",
+        "type": "function",
+        "z": "f4d1039b513810a4",
+        "name": "📱 Format Telegram",
+        "func": "// ⚠️ PON TU CHAT ID AQUÍ\nconst CHAT_ID = \"7906886061\";\n\nconst alerts = Array.isArray(msg.payload) ? msg.payload : [msg.payload];\n\nconst out = [];\nfor (const a of alerts) {\n    const emoji = a.level === \"CRIT\" ? \"🚨\" : a.level === \"WARN\" ? \"⚠️\" : \"ℹ️\";\n    const text = `${emoji} *${a.title}*\\n\\n${a.msg}\\n\\n🕐 ${new Date().toLocaleString('es-ES')}`;\n    \n    out.push({\n        payload: {\n            chatId: CHAT_ID,\n            type: \"message\",\n            content: text,\n            options: { parse_mode: \"Markdown\" }\n        }\n    });\n}\n\nreturn [out];",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1570,
+        "y": 940,
+        "wires": [
+            [
+                "5f75ef6a6e3dabbc"
+            ]
+        ]
+    },
+    {
+        "id": "5f75ef6a6e3dabbc",
+        "type": "telegram sender",
+        "z": "f4d1039b513810a4",
+        "name": "📤 Telegram",
+        "bot": "telegram_bot_config",
+        "haserroroutput": true,
+        "outputs": 2,
+        "x": 1790,
+        "y": 940,
+        "wires": [
+            [],
+            [
+                "39c9c9447e85d90a"
+            ]
+        ]
+    },
+    {
+        "id": "39c9c9447e85d90a",
+        "type": "debug",
+        "z": "f4d1039b513810a4",
+        "name": "Telegram Error",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 2000,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "8b464c7a313b2442",
+        "type": "telegram receiver",
+        "z": "f4d1039b513810a4",
+        "name": "📥 Commands",
+        "bot": "telegram_bot_config",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "hasinput": false,
+        "inputs": 0,
+        "handleallupdates": false,
+        "x": 1560,
+        "y": 1000,
+        "wires": [
+            [
+                "2904724488ea7234"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "2904724488ea7234",
+        "type": "function",
+        "z": "f4d1039b513810a4",
+        "name": "🤖 Commands",
+        "func": "const chatId = msg.payload.chatId;\nconst text = (msg.payload.content || \"\").toLowerCase().trim();\n\nlet response = \"\";\n\nswitch(text) {\n    case \"/start\":\n    case \"/help\":\n        response = \"🌱 *Greenhouse Bot*\\n\\n\" +\n            \"/status - Estado actual\\n\" +\n            \"/sensors - Valores sensores\\n\" +\n            \"/help - Ayuda\";\n        break;\n        \n    case \"/status\":\n        const irrigOn = flow.get(\"irrigationOn\") || false;\n        const lightOn = flow.get(\"lightOn\") || false;\n        response = \"⚡ *Estado*\\n\\n\" +\n            `💧 Riego: ${irrigOn ? \"🟢 ON\" : \"⚪ OFF\"}\\n` +\n            `💡 Luz: ${lightOn ? \"🟢 ON\" : \"⚪ OFF\"}`;\n        break;\n        \n    case \"/sensors\":\n        const temp = flow.get(\"last_temp\");\n        const hum = flow.get(\"last_hum\");\n        const soil = flow.get(\"last_soil\");\n        const light = flow.get(\"last_light\");\n        const tank = flow.get(\"last_tank\");\n        \n        response = \"📡 *Sensores*\\n\\n\" +\n            `🌡️ Temp: ${temp ? temp.value + \"°C\" : \"N/A\"}\\n` +\n            `💧 Hum: ${hum ? hum.value + \"%\" : \"N/A\"}\\n` +\n            `🌱 Suelo: ${soil ? soil.value + \"%\" : \"N/A\"}\\n` +\n            `☀️ Luz: ${light ? light.value + \" ADC\" : \"N/A\"}\\n` +\n            `🪣 Tanque: ${tank ? tank.value + \"%\" : \"N/A\"}`;\n        break;\n        \n    default:\n        if (text.startsWith(\"/\")) {\n            response = \"❓ Comando no reconocido. Usa /help\";\n        } else {\n            return null;\n        }\n}\n\nreturn {\n    payload: {\n        chatId: chatId,\n        type: \"message\",\n        content: response,\n        options: { parse_mode: \"Markdown\" }\n    }\n};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1770,
+        "y": 1000,
+        "wires": [
+            [
+                "5f75ef6a6e3dabbc"
+            ]
+        ]
+    },
+    {
+        "id": "46340dec34bfa017",
+        "type": "mqtt in",
+        "z": "f4d1039b513810a4",
+        "name": "",
+        "topic": "dht11",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "dcc2accf755af92f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 200,
+        "wires": [
+            [
+                "98bee0126fc9eeb8"
+            ]
+        ]
+    },
+    {
+        "id": "d5d4536c94a1973e",
+        "type": "mqtt in",
+        "z": "f4d1039b513810a4",
+        "name": "",
+        "topic": "soil",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "dcc2accf755af92f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 240,
+        "wires": [
+            [
+                "4920363ef6382ea8"
+            ]
+        ]
+    },
+    {
+        "id": "c83aa59ceb2ed6fc",
+        "type": "mqtt in",
+        "z": "f4d1039b513810a4",
+        "name": "",
+        "topic": "ldr",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "dcc2accf755af92f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e40e45d96c24ecf8",
+        "type": "mqtt in",
+        "z": "f4d1039b513810a4",
+        "name": "",
+        "topic": "mq135",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "dcc2accf755af92f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 320,
+        "wires": [
+            [
+                "c66a6e47f138bf63",
+                "d2959599afed6595"
+            ]
+        ]
+    },
+    {
+        "id": "e3ac2686cdd981cb",
+        "type": "inject",
+        "z": "f4d1039b513810a4",
+        "name": "inject_nivel_agua",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "nivel_agua",
+        "payload": "{\"nivel\": 60}",
+        "payloadType": "json",
+        "x": 140,
+        "y": 360,
+        "wires": [
+            [
+                "836dd155e761b6cb"
+            ]
+        ]
+    },
+    {
+        "id": "98bee0126fc9eeb8",
+        "type": "function",
+        "z": "f4d1039b513810a4",
+        "name": "DH11_to_telemetry",
+        "func": "const ts = Date.now();\n\n// 1) Normaliza payload: si viene como string JSON, parsea\nlet p = msg.payload;\n\nif (typeof p === \"string\") {\n  try {\n    p = JSON.parse(p);\n  } catch (e) {\n    node.warn(\"DHT11 payload no es JSON válido: \" + p);\n    return null;\n  }\n}\n\n// 2) Extrae temperatura y humedad (usando tus claves reales y alternativas)\nconst temp = p.temperatura ?? p.temp ?? p.temperature ?? p.t;\nconst hum  = p.humedad    ?? p.hum  ?? p.humidity    ?? p.h;\n\nconst tempN = Number(temp);\nconst humN  = Number(hum);\n\nif (!Number.isFinite(tempN) || !Number.isFinite(humN)) {\n  node.warn(\"DHT11 inválido: \" + JSON.stringify(p));\n  return null;\n}\n\n// 3) Emite 2 mensajes en el formato estándar\nreturn [\n  { topic: \"greenhouse/node1/telemetry\", payload: { ts, type: \"temp\", value: tempN } },\n  { topic: \"greenhouse/node1/telemetry\", payload: { ts, type: \"hum\",  value: humN  } }\n];\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 200,
+        "wires": [
+            [
+                "898e63ca1020e8fe",
+                "c733ae3b7454be09"
+            ]
+        ]
+    },
+    {
+        "id": "4920363ef6382ea8",
+        "type": "function",
+        "z": "f4d1039b513810a4",
+        "name": "soil_to_telemetry",
+        "func": "const ts = Date.now();\n\n// Asegura que payload sea objeto (si usas nodo JSON, normalmente ya lo es)\nconst p = msg.payload;\n\n// 1) Prioridad: si viene \"humedad\", usamos esa (parece que ya está procesada)\nlet v = undefined;\n\nif (p && typeof p === \"object\") {\n  if (p.humedad !== undefined) v = p.humedad;\n  else if (p.moisture !== undefined) v = p.moisture;\n  else if (p.soil !== undefined) v = p.soil;\n  else if (p.value !== undefined) v = p.value;\n  else if (p.raw !== undefined) v = p.raw; // fallback: usar raw si no hay humedad\n} else {\n  // si por lo que sea llega un número directo\n  v = p;\n}\n\nif (v === undefined || v === null) {\n  node.warn(\"SOIL payload inválido (sin campos esperados): \" + JSON.stringify(p));\n  return null;\n}\n\n// 2) Convierte a número y valida\nv = Number(v);\nif (!Number.isFinite(v)) {\n  node.warn(\"SOIL value no numérico: \" + JSON.stringify(p));\n  return null;\n}\n\n// 3) Construye el mensaje en tu formato estándar\nmsg.topic = \"greenhouse/node2/telemetry\";\nmsg.payload = { ts, type: \"soil\", value: v };\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 240,
+        "wires": [
+            [
+                "0bb57c625e14b8a2",
+                "c733ae3b7454be09"
+            ]
+        ]
+    },
+    {
+        "id": "eab724b458c6fc81",
+        "type": "function",
+        "z": "f4d1039b513810a4",
+        "name": "ldr_to_telemetry",
+        "func": "const ts = Date.now();\n\n// 1) Normaliza payload: si viene como string JSON, parsea\nlet p = msg.payload;\n\nif (typeof p === \"string\") {\n  try {\n    p = JSON.parse(p);\n  } catch (e) {\n    node.warn('LDR payload no es JSON válido: ' + p);\n    return null;\n  }\n}\n\n// 2) Extrae valor de luz (prioriza \"luz\", luego raw, etc.)\nlet v;\nif (p && typeof p === \"object\") {\n  v = p.luz ?? p.light ?? p.ldr ?? p.value ?? p.raw;\n} else {\n  v = p;\n}\n\n// 3) Convierte y valida\nv = Number(v);\nif (!Number.isFinite(v)) {\n  node.warn(\"LDR inválido: \" + JSON.stringify(p));\n  return null;\n}\n\n// 4) Construye mensaje estándar\nmsg.topic = \"greenhouse/node3/telemetry\";\nmsg.payload = { ts, type: \"light\", value: v };\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 280,
+        "wires": [
+            [
+                "3cfd7e9e035e441f",
+                "c733ae3b7454be09"
+            ]
+        ]
+    },
+    {
+        "id": "c66a6e47f138bf63",
+        "type": "function",
+        "z": "f4d1039b513810a4",
+        "name": "mq135_to_telemetry",
+        "func": "const ts = Date.now();\nlet p = msg.payload;\n\nif (typeof p === \"string\") {\n  try { p = JSON.parse(p); }\n  catch { return [null, null]; }\n}\n\nconst rawN = Number(p.raw);\nconst pctN = Number(p.percentage);\n\nconst msgRaw = Number.isFinite(rawN)\n  ? { topic: \"greenhouse/node4/telemetry\", payload: { ts, type: \"gas_raw\", value: rawN } }\n  : null;\n\nconst msgPct = Number.isFinite(pctN)\n  ? { topic: \"greenhouse/node4/telemetry\", payload: { ts, type: \"gas_pct\", value: pctN } }\n  : null;\n\n// raw por salida 1, percentage por salida 2\nreturn [msgRaw, msgPct];\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 320,
+        "wires": [
+            [
+                "cdc6c95fcf4af7fb"
+            ]
+        ]
+    },
+    {
+        "id": "836dd155e761b6cb",
+        "type": "function",
+        "z": "f4d1039b513810a4",
+        "name": "agua_to_telemetry",
+        "func": "const ts = Date.now();\nconst v = (typeof msg.payload === \"object\")\n  ? (msg.payload.value ?? msg.payload.tank ?? msg.payload.level)\n  : msg.payload;\n\nif (v === undefined) {\n  node.warn(\"TANK payload inválido: \" + JSON.stringify(msg.payload));\n  return null;\n}\n\nmsg.topic = \"greenhouse/node4/telemetry\";\nmsg.payload = { ts, type: \"tank\", value: Number(v) };\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 360,
+        "wires": [
+            [
+                "957d18ab4c465c58",
+                "c733ae3b7454be09"
+            ]
+        ]
+    },
+    {
+        "id": "898e63ca1020e8fe",
+        "type": "debug",
+        "z": "f4d1039b513810a4",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "0bb57c625e14b8a2",
+        "type": "debug",
+        "z": "f4d1039b513810a4",
+        "name": "debug 2",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "3cfd7e9e035e441f",
+        "type": "debug",
+        "z": "f4d1039b513810a4",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "cdc6c95fcf4af7fb",
+        "type": "debug",
+        "z": "f4d1039b513810a4",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "957d18ab4c465c58",
+        "type": "debug",
+        "z": "f4d1039b513810a4",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "d2959599afed6595",
+        "type": "debug",
+        "z": "f4d1039b513810a4",
+        "name": "debug 6",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 440,
+        "wires": []
     }
 ]
