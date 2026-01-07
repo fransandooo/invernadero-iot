@@ -35,3 +35,5 @@ infra/mosquitto/log
 **/secrets.h
 **/config_private.h
 .env
+/infra/matlab/secrets.json
+*.asv
