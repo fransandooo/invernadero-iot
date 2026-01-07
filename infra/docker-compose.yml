@@ -3,7 +3,7 @@ services:
     image: eclipse-mosquitto:2
     container_name: greenhouse-mosquitto
     ports:
-      - "1883:1883"
+      - "1884:1883"
     volumes:
       - ./mosquitto/config:/mosquitto/config
       - ./mosquitto/data:/mosquitto/data
@@ -14,7 +14,7 @@ services:
     image: nodered/node-red:latest
     container_name: greenhouse-nodered
     ports:
-      - "1880:1880"
+      - "1881:1880"
     volumes:
       - ./nodered/data:/data
     restart: unless-stopped
