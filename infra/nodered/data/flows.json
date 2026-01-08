@@ -1663,13 +1663,13 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1070,
-        "y": 280,
+        "x": 970,
+        "y": 360,
         "wires": [
             [
-                "634aa00d0919a713",
                 "df7e15abcf3d5013",
-                "9bdb2090a80cee63"
+                "9bdb2090a80cee63",
+                "634aa00d0919a713"
             ]
         ]
     },
@@ -1705,13 +1705,18 @@
                 "t": "eq",
                 "v": "tank",
                 "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "aire",
+                "vt": "str"
             }
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 5,
-        "x": 1300,
-        "y": 280,
+        "outputs": 6,
+        "x": 1200,
+        "y": 220,
         "wires": [
             [
                 "a7f7024b349871ba",
@@ -1732,6 +1737,10 @@
             [
                 "fa2501fca12d4f24",
                 "9456489061cd3906"
+            ],
+            [
+                "abaefe9164f67474",
+                "2ebcf20d64bec717"
             ]
         ]
     },
@@ -1786,8 +1795,8 @@
         "sizeGap": "",
         "sizeKeyThickness": "",
         "className": "",
-        "x": 1520,
-        "y": 170,
+        "x": 1420,
+        "y": 100,
         "wires": [
             []
         ]
@@ -1806,25 +1815,39 @@
         "gtype": "gauge-half",
         "gstyle": "needle",
         "title": "Humedad Amb",
+        "alwaysShowTitle": false,
         "units": "%",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
         "segments": [
             {
                 "from": "0",
-                "color": "#ff9800"
+                "color": "#ff9800",
+                "text": "",
+                "textType": "label"
             },
             {
                 "from": "30",
-                "color": "#4caf50"
+                "color": "#4caf50",
+                "text": "",
+                "textType": "label"
             },
             {
                 "from": "70",
-                "color": "#2196f3"
+                "color": "#2196f3",
+                "text": "",
+                "textType": "label"
             }
         ],
         "min": 0,
         "max": "100",
-        "x": 1520,
-        "y": 220,
+        "sizeThickness": "",
+        "sizeGap": "",
+        "sizeKeyThickness": "",
+        "className": "",
+        "x": 1420,
+        "y": 150,
         "wires": [
             []
         ]
@@ -1843,25 +1866,39 @@
         "gtype": "gauge-half",
         "gstyle": "needle",
         "title": "Humedad Suelo",
+        "alwaysShowTitle": false,
         "units": "%",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
         "segments": [
             {
                 "from": "0",
-                "color": "#f44336"
+                "color": "#f44336",
+                "text": "",
+                "textType": "label"
             },
             {
                 "from": "30",
-                "color": "#ff9800"
+                "color": "#ff9800",
+                "text": "",
+                "textType": "label"
             },
             {
                 "from": "50",
-                "color": "#4caf50"
+                "color": "#4caf50",
+                "text": "",
+                "textType": "label"
             }
         ],
         "min": 0,
         "max": "100",
-        "x": 1520,
-        "y": 270,
+        "sizeThickness": "",
+        "sizeGap": "",
+        "sizeKeyThickness": "",
+        "className": "",
+        "x": 1420,
+        "y": 200,
         "wires": [
             []
         ]
@@ -1897,8 +1934,8 @@
         ],
         "min": 0,
         "max": "1023",
-        "x": 1520,
-        "y": 320,
+        "x": 1420,
+        "y": 250,
         "wires": [
             []
         ]
@@ -1934,8 +1971,8 @@
         ],
         "min": 0,
         "max": "100",
-        "x": 1520,
-        "y": 370,
+        "x": 1420,
+        "y": 300,
         "wires": [
             []
         ]
@@ -1969,8 +2006,8 @@
         ],
         "width": 4,
         "height": 4,
-        "x": 1700,
-        "y": 170,
+        "x": 1600,
+        "y": 100,
         "wires": [
             []
         ]
@@ -2004,8 +2041,8 @@
         ],
         "width": 4,
         "height": 4,
-        "x": 1700,
-        "y": 220,
+        "x": 1600,
+        "y": 150,
         "wires": [
             []
         ]
@@ -2023,9 +2060,10 @@
         "categoryType": "msg",
         "xAxisLabel": "",
         "xAxisProperty": "",
-        "xAxisPropertyType": "msg",
+        "xAxisPropertyType": "property",
         "xAxisType": "auto",
         "yAxisLabel": "%",
+        "yAxisPropertyType": "property",
         "ymin": "0",
         "ymax": "100",
         "action": "append",
@@ -2039,8 +2077,8 @@
         ],
         "width": 4,
         "height": 4,
-        "x": 1700,
-        "y": 270,
+        "x": 1600,
+        "y": 200,
         "wires": [
             []
         ]
@@ -2074,8 +2112,8 @@
         ],
         "width": 4,
         "height": 4,
-        "x": 1700,
-        "y": 320,
+        "x": 1600,
+        "y": 250,
         "wires": [
             []
         ]
@@ -2094,24 +2132,50 @@
         "xAxisLabel": "",
         "xAxisProperty": "",
         "xAxisPropertyType": "property",
-        "xAxisType": "auto",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
         "yAxisLabel": "%",
+        "yAxisProperty": "",
         "yAxisPropertyType": "property",
         "ymin": "0",
         "ymax": "100",
+        "bins": "",
         "action": "append",
+        "stackSeries": false,
         "pointShape": "circle",
         "pointRadius": 4,
         "showLegend": false,
         "removeOlder": 1,
         "removeOlderUnit": "3600",
+        "removeOlderPoints": "",
         "colors": [
-            "#00bcd4"
+            "#00bcd4",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000"
         ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
         "width": 4,
         "height": 4,
-        "x": 1700,
-        "y": 370,
+        "className": "",
+        "interpolation": "linear",
+        "x": 1598.9999618530273,
+        "y": 295.99999809265137,
         "wires": [
             []
         ]
@@ -2121,8 +2185,8 @@
         "type": "comment",
         "z": "f4d1039b513810a4",
         "name": "══════════ 🧠 REGLAS ══════════",
-        "x": 1410,
-        "y": 440,
+        "x": 1310,
+        "y": 400,
         "wires": []
     },
     {
@@ -2137,8 +2201,8 @@
         "initialize": "flow.set(\"irrigationOn\", false);\nflow.set(\"lightOn\", false);",
         "finalize": "",
         "libs": [],
-        "x": 1320,
-        "y": 560,
+        "x": 1240,
+        "y": 500,
         "wires": [
             [
                 "f2ff969f19e504dd",
@@ -2159,8 +2223,8 @@
         "qos": "1",
         "retain": "false",
         "broker": "dcc2accf755af92f",
-        "x": 1530,
-        "y": 540,
+        "x": 1450,
+        "y": 480,
         "wires": []
     },
     {
@@ -2172,8 +2236,8 @@
         "qos": "1",
         "retain": "false",
         "broker": "dcc2accf755af92f",
-        "x": 1520,
-        "y": 600,
+        "x": 1440,
+        "y": 540,
         "wires": []
     },
     {
@@ -2188,8 +2252,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1520,
-        "y": 500,
+        "x": 1440,
+        "y": 440,
         "wires": [
             [
                 "bf27a21dda200cfb",
@@ -2212,8 +2276,8 @@
         "style": false,
         "font": "",
         "color": "#2196f3",
-        "x": 1710,
-        "y": 480,
+        "x": 1630,
+        "y": 420,
         "wires": []
     },
     {
@@ -2231,8 +2295,8 @@
         "style": false,
         "font": "",
         "color": "#ffc107",
-        "x": 1710,
-        "y": 520,
+        "x": 1630,
+        "y": 460,
         "wires": []
     },
     {
@@ -2240,8 +2304,8 @@
         "type": "comment",
         "z": "f4d1039b513810a4",
         "name": "══════════ 📊 THINGSPEAK ══════════",
-        "x": 1430,
-        "y": 680,
+        "x": 1330,
+        "y": 620,
         "wires": []
     },
     {
@@ -2264,8 +2328,8 @@
         "reduceInit": "",
         "reduceInitType": "",
         "reduceFixup": "",
-        "x": 1340,
-        "y": 760,
+        "x": 1240,
+        "y": 700,
         "wires": [
             [
                 "07ac39dee47b6a54"
@@ -2284,8 +2348,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1580,
-        "y": 760,
+        "x": 1480,
+        "y": 700,
         "wires": [
             [
                 "b385ca4c1e5815f5",
@@ -2309,8 +2373,8 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 1820,
-        "y": 760,
+        "x": 1720,
+        "y": 700,
         "wires": [
             []
         ]
@@ -2326,8 +2390,8 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "x": 1820,
-        "y": 800,
+        "x": 1720,
+        "y": 740,
         "wires": []
     },
     {
@@ -2335,8 +2399,8 @@
         "type": "comment",
         "z": "f4d1039b513810a4",
         "name": "══════════ 📱 TELEGRAM ══════════",
-        "x": 1560,
-        "y": 880,
+        "x": 1460,
+        "y": 820,
         "wires": []
     },
     {
@@ -2351,8 +2415,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1570,
-        "y": 940,
+        "x": 1470,
+        "y": 880,
         "wires": [
             [
                 "5f75ef6a6e3dabbc"
@@ -2367,8 +2431,8 @@
         "bot": "telegram_bot_config",
         "haserroroutput": true,
         "outputs": 2,
-        "x": 1790,
-        "y": 940,
+        "x": 1690,
+        "y": 880,
         "wires": [
             [],
             [
@@ -2381,14 +2445,14 @@
         "type": "debug",
         "z": "f4d1039b513810a4",
         "name": "Telegram Error",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": true,
         "complete": "payload",
         "targetType": "msg",
-        "x": 2000,
-        "y": 960,
+        "x": 1900,
+        "y": 900,
         "wires": []
     },
     {
@@ -2402,8 +2466,8 @@
         "hasinput": false,
         "inputs": 0,
         "handleallupdates": false,
-        "x": 1560,
-        "y": 1000,
+        "x": 1460,
+        "y": 940,
         "wires": [
             [
                 "2904724488ea7234"
@@ -2423,8 +2487,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1770,
-        "y": 1000,
+        "x": 1670,
+        "y": 940,
         "wires": [
             [
                 "5f75ef6a6e3dabbc"
@@ -2466,7 +2530,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 170,
-        "y": 240,
+        "y": 280,
         "wires": [
             [
                 "4920363ef6382ea8"
@@ -2487,7 +2551,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 170,
-        "y": 280,
+        "y": 360,
         "wires": [
             []
         ]
@@ -2505,8 +2569,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 170,
-        "y": 320,
+        "x": 150,
+        "y": 440,
         "wires": [
             [
                 "c66a6e47f138bf63"
@@ -2535,7 +2599,7 @@
         "payload": "{\"nivel\": 60}",
         "payloadType": "json",
         "x": 140,
-        "y": 360,
+        "y": 520,
         "wires": [
             [
                 "836dd155e761b6cb"
@@ -2559,7 +2623,8 @@
         "wires": [
             [
                 "898e63ca1020e8fe",
-                "c733ae3b7454be09"
+                "c733ae3b7454be09",
+                "b9dd7c80a9dd7a8a"
             ]
         ]
     },
@@ -2576,11 +2641,12 @@
         "finalize": "",
         "libs": [],
         "x": 530,
-        "y": 240,
+        "y": 280,
         "wires": [
             [
                 "0bb57c625e14b8a2",
-                "c733ae3b7454be09"
+                "c733ae3b7454be09",
+                "b9dd7c80a9dd7a8a"
             ]
         ]
     },
@@ -2597,11 +2663,12 @@
         "finalize": "",
         "libs": [],
         "x": 520,
-        "y": 280,
+        "y": 360,
         "wires": [
             [
                 "3cfd7e9e035e441f",
-                "c733ae3b7454be09"
+                "c733ae3b7454be09",
+                "b9dd7c80a9dd7a8a"
             ]
         ]
     },
@@ -2617,11 +2684,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 540,
-        "y": 320,
+        "x": 520,
+        "y": 440,
         "wires": [
             [
-                "cdc6c95fcf4af7fb"
+                "cdc6c95fcf4af7fb",
+                "b9dd7c80a9dd7a8a"
             ]
         ]
     },
@@ -2638,7 +2706,7 @@
         "finalize": "",
         "libs": [],
         "x": 530,
-        "y": 360,
+        "y": 520,
         "wires": [
             [
                 "957d18ab4c465c58",
@@ -2658,8 +2726,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 760,
-        "y": 200,
+        "x": 540,
+        "y": 240,
         "wires": []
     },
     {
@@ -2674,8 +2742,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 760,
-        "y": 240,
+        "x": 540,
+        "y": 320,
         "wires": []
     },
     {
@@ -2683,15 +2751,15 @@
         "type": "debug",
         "z": "f4d1039b513810a4",
         "name": "debug 3",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 760,
-        "y": 280,
+        "x": 540,
+        "y": 400,
         "wires": []
     },
     {
@@ -2699,15 +2767,15 @@
         "type": "debug",
         "z": "f4d1039b513810a4",
         "name": "debug 4",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 760,
-        "y": 320,
+        "x": 540,
+        "y": 480,
         "wires": []
     },
     {
@@ -2715,6 +2783,324 @@
         "type": "debug",
         "z": "f4d1039b513810a4",
         "name": "debug 5",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "993d9db1fe1681ba",
+        "type": "function",
+        "z": "f4d1039b513810a4",
+        "name": "Last value",
+        "func": "const p = msg.payload;\n\nif (!p || typeof p !== \"object\") {\n    node.warn(\"ALEXA store: payload no es objeto\");\n    return null;\n}\n\nconst type = String(p.type || \"\").trim().toLowerCase();\nconst value = Number(p.value);\n\nif (!type || !Number.isFinite(value)) {\n    node.warn(\"ALEXA store: type/value inválidos: \" + JSON.stringify(p));\n    return null;\n}\n\n// Guarda en FLOW (no global)\nflow.set(type, value);\nflow.set(`ts_${type}`, Number(p.ts) || Date.now());\n\n// Para comprobar rápido en debug (luego lo puedes quitar):\nnode.status({ fill: \"green\", shape: \"dot\", text: `saved ${type}=${value}` });\n\nreturn null;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1170,
+        "y": 1140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "192fa7bfdf68d9e0",
+        "type": "comment",
+        "z": "f4d1039b513810a4",
+        "name": "══════════ 🔊 ALEXA ══════════",
+        "info": "",
+        "x": 1450,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "825d839755a62b1e",
+        "type": "http in",
+        "z": "f4d1039b513810a4",
+        "name": "Soil",
+        "url": "/api/alexa/soil",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 1350,
+        "y": 1100,
+        "wires": [
+            [
+                "2395351dcfb87cfd"
+            ]
+        ]
+    },
+    {
+        "id": "2395351dcfb87cfd",
+        "type": "function",
+        "z": "f4d1039b513810a4",
+        "name": "GET Soil",
+        "func": "const soil = flow.get(\"soil\");\nif (soil === undefined) {\n    msg.statusCode = 503;\n    msg.payload = { ok: false, error: \"No hay dato de soil aún\" };\n    return msg;\n}\nmsg.payload = { ok: true, soil };\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1520,
+        "y": 1100,
+        "wires": [
+            [
+                "e19ec1346742d6fe"
+            ]
+        ]
+    },
+    {
+        "id": "e19ec1346742d6fe",
+        "type": "http response",
+        "z": "f4d1039b513810a4",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1690,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "dd9c3831955706ed",
+        "type": "http in",
+        "z": "f4d1039b513810a4",
+        "name": "DTH",
+        "url": "/api/alexa/dht",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 1350,
+        "y": 1140,
+        "wires": [
+            [
+                "ff97ee4f7ef8bd03"
+            ]
+        ]
+    },
+    {
+        "id": "ff97ee4f7ef8bd03",
+        "type": "function",
+        "z": "f4d1039b513810a4",
+        "name": "GET DHT",
+        "func": "const temp = flow.get(\"temp\");\nconst hum  = flow.get(\"hum\");\n\nif (temp === undefined || hum === undefined) {\n  msg.statusCode = 503;\n  msg.payload = { ok:false, error:\"No hay dato de temp/hum aún\" };\n  return msg;\n}\n\nmsg.payload = { ok:true, temp, hum };\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1520,
+        "y": 1140,
+        "wires": [
+            [
+                "e2bfada8a0417b87"
+            ]
+        ]
+    },
+    {
+        "id": "e2bfada8a0417b87",
+        "type": "http response",
+        "z": "f4d1039b513810a4",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1690,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "6608c8743ff7cbe4",
+        "type": "http in",
+        "z": "f4d1039b513810a4",
+        "name": "Tank",
+        "url": "/api/alexa/tank",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 1350,
+        "y": 1180,
+        "wires": [
+            [
+                "910957e0fa25d678"
+            ]
+        ]
+    },
+    {
+        "id": "910957e0fa25d678",
+        "type": "function",
+        "z": "f4d1039b513810a4",
+        "name": "GET Tank",
+        "func": "const tank = flow.get(\"tank\");\nif (tank === undefined) {\n    msg.statusCode = 503;\n    msg.payload = { ok: false, error: \"No hay dato de tank aún\" };\n    return msg;\n}\nmsg.payload = { ok: true, tank };\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1520,
+        "y": 1180,
+        "wires": [
+            [
+                "368892a5f5d191ee"
+            ]
+        ]
+    },
+    {
+        "id": "368892a5f5d191ee",
+        "type": "http response",
+        "z": "f4d1039b513810a4",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1690,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "693458e5cdcdc211",
+        "type": "http in",
+        "z": "f4d1039b513810a4",
+        "name": "Aire",
+        "url": "/api/alexa/aire",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 1350,
+        "y": 1220,
+        "wires": [
+            [
+                "3e11b46d01e45840"
+            ]
+        ]
+    },
+    {
+        "id": "3e11b46d01e45840",
+        "type": "function",
+        "z": "f4d1039b513810a4",
+        "name": "Get Aire",
+        "func": "// Cambia \"gas_pct\" por \"gas\" si ese es tu type real\nconst gas_pct = flow.get(\"gas_pct\");\n\nif (gas_pct === undefined) {\n  msg.statusCode = 503;\n  msg.payload = { ok:false, error:\"No hay dato de calidad de aire aún\" };\n  return msg;\n}\n\nmsg.payload = { ok:true, gas_pct };\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1520,
+        "y": 1220,
+        "wires": [
+            [
+                "6e2b9fffb83ff031"
+            ]
+        ]
+    },
+    {
+        "id": "6e2b9fffb83ff031",
+        "type": "http response",
+        "z": "f4d1039b513810a4",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1690,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "173b1ff7ba4e75e3",
+        "type": "http in",
+        "z": "f4d1039b513810a4",
+        "name": "Light",
+        "url": "/api/alexa/light",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 1350,
+        "y": 1260,
+        "wires": [
+            [
+                "5e49480d3febcc9d"
+            ]
+        ]
+    },
+    {
+        "id": "5e49480d3febcc9d",
+        "type": "function",
+        "z": "f4d1039b513810a4",
+        "name": "GET Light",
+        "func": "const light = flow.get(\"light\");\nif (light === undefined) {\n    msg.statusCode = 503;\n    msg.payload = { ok: false, error: \"No hay dato de luz aún\" };\n    return msg;\n}\nmsg.payload = { ok: true, light };\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1520,
+        "y": 1260,
+        "wires": [
+            [
+                "e72b396cc8372338"
+            ]
+        ]
+    },
+    {
+        "id": "e72b396cc8372338",
+        "type": "http response",
+        "z": "f4d1039b513810a4",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1690,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "b9dd7c80a9dd7a8a",
+        "type": "link out",
+        "z": "f4d1039b513810a4",
+        "name": "link out Alexa RAW",
+        "mode": "link",
+        "links": [
+            "d0da1ee2b69c21f9"
+        ],
+        "x": 905,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "d0da1ee2b69c21f9",
+        "type": "link in",
+        "z": "f4d1039b513810a4",
+        "name": "link in Alexa RAW",
+        "links": [
+            "b9dd7c80a9dd7a8a"
+        ],
+        "x": 1025,
+        "y": 1140,
+        "wires": [
+            [
+                "993d9db1fe1681ba"
+            ]
+        ]
+    },
+    {
+        "id": "82a37cf307eb307d",
+        "type": "debug",
+        "z": "f4d1039b513810a4",
+        "name": "debug 6",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -2722,8 +3108,124 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 760,
-        "y": 360,
+        "x": 2320,
+        "y": 200,
         "wires": []
+    },
+    {
+        "id": "abaefe9164f67474",
+        "type": "ui-gauge",
+        "z": "f4d1039b513810a4",
+        "name": "💨        Aire",
+        "group": "ui_group_sensors",
+        "order": 0,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "gauge",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "units",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "4",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "7",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": 10,
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 1420,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2ebcf20d64bec717",
+        "type": "ui-chart",
+        "z": "f4d1039b513810a4",
+        "group": "ui_group_charts",
+        "name": "📈 Aire",
+        "label": "Aire",
+        "order": 9007199254740991,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "",
+        "ymax": "",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "circle",
+        "pointRadius": 4,
+        "showLegend": true,
+        "removeOlder": 1,
+        "removeOlderUnit": "3600",
+        "removeOlderPoints": "",
+        "colors": [
+            "#0095ff",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": "4",
+        "height": "4",
+        "className": "",
+        "interpolation": "linear",
+        "x": 1600,
+        "y": 340,
+        "wires": [
+            []
+        ]
     }
 ]
