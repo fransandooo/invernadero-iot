@@ -109,12 +109,3 @@ void loop() {
 
   yield(); // recomendado para el ESP8266
 }
-
-
-// --- LOOP ---
-void loop() {
-  if (!client.connected()) reconnect();
-  client.loop();
-
-  yield(); // recomendado para el ESP8266
-}
