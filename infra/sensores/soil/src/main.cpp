@@ -96,7 +96,7 @@ void reconnect() {
 void setup() {
   Serial.begin(115200);
   setup_wifi();
-  client.setServer(mqtt_server, 1883);
+  client.setServer(mqtt_server, 1884);
 
   reconnect();
   soilloopTicker.attach_ms(3000, tickSoilloop); // publica cada 3 s
