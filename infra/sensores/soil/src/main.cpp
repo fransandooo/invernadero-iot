@@ -6,12 +6,11 @@
 #include <Ticker.h>
 
 // --- WIFI ---
-// todos los nodos y ordenadores tienen que estar conectados a la misma red
-const char* ssid = "WWWWW"; // cambiar por el nombre de la red WiFi 
-const char* password = "w.w.w.w.w"; // cambiar por la contraseña de la red WiFi
+const char* ssid = "Gonzalos S24";
+const char* password = "bondia2020";
 
 // --- MQTT ---
-const char* mqtt_server = "10.228.245.75"; //donde está levantado
+const char* mqtt_server = "10.180.73.213";
 const char* mqtt_topic = "soil";
 
 // --- OBJETOS ---
@@ -72,7 +71,7 @@ void setup_wifi() {
   Serial.println(WiFi.localIP());
 }
 
-// Conexión al broker MQTT
+// // Conexión al broker MQTT
 void reconnect() {
   Serial.print("Conectando MQTT...");
 
@@ -91,27 +90,17 @@ void reconnect() {
   mqttTicker.detach(); // detenemos el ticker al conectar
 }
 
-
-// --- SETUP ---
+// // --- SETUP ---
 void setup() {
   Serial.begin(115200);
   setup_wifi();
-  client.setServer(mqtt_server, 1883);
+  client.setServer(mqtt_server, 1884);
 
   reconnect();
   soilloopTicker.attach_ms(3000, tickSoilloop); // publica cada 3 s
 }
 
-// --- LOOP ---
-void loop() {
-  if (!client.connected()) reconnect();
-  client.loop();
-
-  yield(); // recomendado para el ESP8266
-}
-
-
-// --- LOOP ---
+// // --- LOOP ---
 void loop() {
   if (!client.connected()) reconnect();
   client.loop();

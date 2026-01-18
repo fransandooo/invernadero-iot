@@ -1,0 +1,119 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "homeassistant.exposed_entities",
+  "data": {
+    "assistants": {},
+    "exposed_entities": {
+      "conversation.home_assistant": {
+        "assistants": {
+          "conversation": {
+            "should_expose": false
+          }
+        }
+      },
+      "zone.home": {
+        "assistants": {
+          "conversation": {
+            "should_expose": false
+          }
+        }
+      },
+      "sun.sun": {
+        "assistants": {
+          "conversation": {
+            "should_expose": false
+          },
+          "cloud.google_assistant": {
+            "should_expose": false
+          }
+        }
+      },
+      "sensor.humedad_suelo_invernadero": {
+        "assistants": {
+          "conversation": {
+            "should_expose": true
+          },
+          "cloud.alexa": {
+            "should_expose": true
+          },
+          "cloud.google_assistant": {
+            "should_expose": true
+          }
+        }
+      },
+      "sensor.temperatura_invernadero": {
+        "assistants": {
+          "conversation": {
+            "should_expose": true
+          },
+          "cloud.alexa": {
+            "should_expose": true
+          },
+          "cloud.google_assistant": {
+            "should_expose": true
+          }
+        }
+      },
+      "sensor.nivel_tanque_invernadero": {
+        "assistants": {
+          "conversation": {
+            "should_expose": true
+          },
+          "cloud.alexa": {
+            "should_expose": true
+          },
+          "cloud.google_assistant": {
+            "should_expose": true
+          }
+        }
+      },
+      "sensor.humedad_invernadero": {
+        "assistants": {
+          "conversation": {
+            "should_expose": true
+          },
+          "cloud.alexa": {
+            "should_expose": true
+          },
+          "cloud.google_assistant": {
+            "should_expose": true
+          }
+        }
+      },
+      "sensor.iluminacion_invernadero": {
+        "assistants": {
+          "conversation": {
+            "should_expose": true
+          },
+          "cloud.alexa": {
+            "should_expose": true
+          },
+          "cloud.google_assistant": {
+            "should_expose": true
+          }
+        }
+      },
+      "sensor.iluminacion_invernadero_2": {
+        "assistants": {
+          "conversation": {
+            "should_expose": true
+          },
+          "cloud.google_assistant": {
+            "should_expose": true
+          }
+        }
+      },
+      "sensor.iluminacion_invernadero_raw": {
+        "assistants": {
+          "cloud.alexa": {
+            "should_expose": false
+          },
+          "cloud.google_assistant": {
+            "should_expose": false
+          }
+        }
+      }
+    }
+  }
+}

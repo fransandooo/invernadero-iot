@@ -1,0 +1,1848 @@
+2026-01-18 12:28:31.760 WARNING (Recorder) [homeassistant.components.recorder.util] The system could not validate that the sqlite3 database at //config/home-assistant_v2.db was shutdown cleanly
+2026-01-18 12:28:31.778 WARNING (Recorder) [homeassistant.components.recorder.util] Ended unfinished session (id=22 from 2026-01-18 12:15:31.277838)
+2026-01-18 12:28:32.125 ERROR (MainThread) [homeassistant.components.sensor] Error adding entity sensor.iluminacion_invernadero for domain sensor with platform rest
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity_platform.py", line 684, in _async_add_entities
+    await self._async_add_entity(
+        entity, False, entity_registry, config_subentry_id
+    )
+  File "/usr/src/homeassistant/homeassistant/helpers/entity_platform.py", line 1010, in _async_add_entity
+    await entity.add_to_platform_finish()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1380, in add_to_platform_finish
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.iluminacion_invernadero has device class 'None', state class 'None' unit 'ADC' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:28:32.129 ERROR (MainThread) [homeassistant.components.sensor] Error adding entity sensor.humedad_invernadero for domain sensor with platform rest
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity_platform.py", line 684, in _async_add_entities
+    await self._async_add_entity(
+        entity, False, entity_registry, config_subentry_id
+    )
+  File "/usr/src/homeassistant/homeassistant/helpers/entity_platform.py", line 1010, in _async_add_entity
+    await entity.add_to_platform_finish()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1380, in add_to_platform_finish
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.humedad_invernadero has device class 'humidity', state class 'None' unit '%' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:28:32.132 ERROR (MainThread) [homeassistant.components.sensor] Error adding entity sensor.humedad_suelo_invernadero for domain sensor with platform rest
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity_platform.py", line 684, in _async_add_entities
+    await self._async_add_entity(
+        entity, False, entity_registry, config_subentry_id
+    )
+  File "/usr/src/homeassistant/homeassistant/helpers/entity_platform.py", line 1010, in _async_add_entity
+    await entity.add_to_platform_finish()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1380, in add_to_platform_finish
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.humedad_suelo_invernadero has device class 'None', state class 'None' unit '%' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:28:32.135 ERROR (MainThread) [homeassistant.components.sensor] Error adding entity sensor.temperatura_invernadero for domain sensor with platform rest
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity_platform.py", line 684, in _async_add_entities
+    await self._async_add_entity(
+        entity, False, entity_registry, config_subentry_id
+    )
+  File "/usr/src/homeassistant/homeassistant/helpers/entity_platform.py", line 1010, in _async_add_entity
+    await entity.add_to_platform_finish()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1380, in add_to_platform_finish
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.temperatura_invernadero has device class 'temperature', state class 'None' unit '°C' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:28:42.132 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.temperatura_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.temperatura_invernadero has device class 'temperature', state class 'None' unit '°C' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:28:42.135 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.humedad_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.humedad_invernadero has device class 'humidity', state class 'None' unit '%' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:28:42.136 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.iluminacion_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.iluminacion_invernadero has device class 'None', state class 'None' unit 'ADC' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:28:42.138 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.humedad_suelo_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.humedad_suelo_invernadero has device class 'None', state class 'None' unit '%' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:28:52.130 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.iluminacion_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.iluminacion_invernadero has device class 'None', state class 'None' unit 'ADC' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:28:52.131 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.temperatura_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.temperatura_invernadero has device class 'temperature', state class 'None' unit '°C' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:28:52.133 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.humedad_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.humedad_invernadero has device class 'humidity', state class 'None' unit '%' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:28:52.134 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.humedad_suelo_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.humedad_suelo_invernadero has device class 'None', state class 'None' unit '%' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:29:02.131 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.temperatura_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.temperatura_invernadero has device class 'temperature', state class 'None' unit '°C' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:29:02.134 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.iluminacion_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.iluminacion_invernadero has device class 'None', state class 'None' unit 'ADC' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:29:02.136 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.humedad_suelo_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.humedad_suelo_invernadero has device class 'None', state class 'None' unit '%' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:29:02.138 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.humedad_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.humedad_invernadero has device class 'humidity', state class 'None' unit '%' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:29:12.128 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.temperatura_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.temperatura_invernadero has device class 'temperature', state class 'None' unit '°C' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:29:12.130 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.humedad_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.humedad_invernadero has device class 'humidity', state class 'None' unit '%' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:29:12.131 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.iluminacion_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.iluminacion_invernadero has device class 'None', state class 'None' unit 'ADC' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:29:12.133 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.humedad_suelo_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.humedad_suelo_invernadero has device class 'None', state class 'None' unit '%' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:29:22.129 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.humedad_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.humedad_invernadero has device class 'humidity', state class 'None' unit '%' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:29:22.131 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.temperatura_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.temperatura_invernadero has device class 'temperature', state class 'None' unit '°C' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:29:22.133 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.humedad_suelo_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.humedad_suelo_invernadero has device class 'None', state class 'None' unit '%' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:29:22.134 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.iluminacion_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.iluminacion_invernadero has device class 'None', state class 'None' unit 'ADC' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:29:32.131 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.humedad_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.humedad_invernadero has device class 'humidity', state class 'None' unit '%' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:29:32.134 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.iluminacion_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.iluminacion_invernadero has device class 'None', state class 'None' unit 'ADC' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:29:32.135 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.humedad_suelo_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.humedad_suelo_invernadero has device class 'None', state class 'None' unit '%' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:29:32.137 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.temperatura_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.temperatura_invernadero has device class 'temperature', state class 'None' unit '°C' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:29:42.131 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.humedad_suelo_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.humedad_suelo_invernadero has device class 'None', state class 'None' unit '%' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:29:42.133 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.humedad_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.humedad_invernadero has device class 'humidity', state class 'None' unit '%' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:29:42.135 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.temperatura_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.temperatura_invernadero has device class 'temperature', state class 'None' unit '°C' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:29:42.137 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.iluminacion_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.iluminacion_invernadero has device class 'None', state class 'None' unit 'ADC' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:29:52.133 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.iluminacion_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.iluminacion_invernadero has device class 'None', state class 'None' unit 'ADC' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:29:52.136 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.humedad_suelo_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.humedad_suelo_invernadero has device class 'None', state class 'None' unit '%' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:29:52.137 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.humedad_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.humedad_invernadero has device class 'humidity', state class 'None' unit '%' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:29:52.139 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.temperatura_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.temperatura_invernadero has device class 'temperature', state class 'None' unit '°C' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:30:02.133 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.iluminacion_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.iluminacion_invernadero has device class 'None', state class 'None' unit 'ADC' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:30:02.134 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.temperatura_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.temperatura_invernadero has device class 'temperature', state class 'None' unit '°C' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:30:02.136 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.humedad_suelo_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.humedad_suelo_invernadero has device class 'None', state class 'None' unit '%' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:30:02.138 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.humedad_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.humedad_invernadero has device class 'humidity', state class 'None' unit '%' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:30:12.132 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.temperatura_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.temperatura_invernadero has device class 'temperature', state class 'None' unit '°C' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:30:12.134 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.humedad_suelo_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.humedad_suelo_invernadero has device class 'None', state class 'None' unit '%' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:30:12.135 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.humedad_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.humedad_invernadero has device class 'humidity', state class 'None' unit '%' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:30:12.136 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.iluminacion_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.iluminacion_invernadero has device class 'None', state class 'None' unit 'ADC' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:30:22.135 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.iluminacion_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.iluminacion_invernadero has device class 'None', state class 'None' unit 'ADC' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:30:22.137 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.humedad_suelo_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.humedad_suelo_invernadero has device class 'None', state class 'None' unit '%' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:30:32.135 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.humedad_suelo_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.humedad_suelo_invernadero has device class 'None', state class 'None' unit '%' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:30:42.135 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.humedad_suelo_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.humedad_suelo_invernadero has device class 'None', state class 'None' unit '%' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:30:52.135 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.humedad_suelo_invernadero fails
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 689, in state
+    numerical_value = float(value)  # type:ignore[arg-type]
+ValueError: could not convert string to float: 'unavailable'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 961, in async_update_ha_state
+    await self.async_device_update()
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1312, in async_device_update
+    await self.async_update()
+  File "/usr/src/homeassistant/homeassistant/components/rest/entity.py", line 64, in async_update
+    self._update_from_rest_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/components/rest/sensor.py", line 184, in _update_from_rest_data
+    self.async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1024, in async_write_ha_state
+    self._async_write_ha_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1149, in _async_write_ha_state
+    self.__async_calculate_state()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1086, in __async_calculate_state
+    state = self._stringify_state(available)
+  File "/usr/src/homeassistant/homeassistant/helpers/entity.py", line 1030, in _stringify_state
+    if (state := self.state) is None:
+                 ^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/sensor/__init__.py", line 691, in state
+    raise ValueError(
+    ...<5 lines>...
+    ) from err
+ValueError: Sensor sensor.humedad_suelo_invernadero has device class 'None', state class 'None' unit '%' and suggested precision 'None' thus indicating it has a numeric value; however, it has the non-numeric value: 'unavailable' (<class 'str'>)
+2026-01-18 12:36:35.417 ERROR (MainThread) [homeassistant] Error doing job: Task exception was never retrieved (task: None)
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/cloud/alexa_config.py", line 330, in async_get_access_token
+    details = await self._cloud.alexa_api.access_token()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/hass_nabucasa/api.py", line 63, in wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/hass_nabucasa/alexa_api.py", line 63, in access_token
+    raise AlexaApiNeedsRelinkError(
+    ...<3 lines>...
+    ) from None
+hass_nabucasa.alexa_api.AlexaApiNeedsRelinkError: RefreshTokenNotFound
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/cloud/alexa_config.py", line 458, in _sync_prefs
+    if await self._sync_helper(to_update, to_remove):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/cloud/alexa_config.py", line 490, in _sync_helper
+    await self.async_get_access_token()
+  File "/usr/src/homeassistant/homeassistant/components/cloud/alexa_config.py", line 343, in async_get_access_token
+    raise alexa_errors.RequireRelink from exception
+homeassistant.components.alexa.errors.RequireRelink
+2026-01-18 12:37:06.473 ERROR (MainThread) [homeassistant] Error doing job: Task exception was never retrieved (task: None)
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/cloud/alexa_config.py", line 330, in async_get_access_token
+    details = await self._cloud.alexa_api.access_token()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/hass_nabucasa/api.py", line 63, in wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/hass_nabucasa/alexa_api.py", line 63, in access_token
+    raise AlexaApiNeedsRelinkError(
+    ...<3 lines>...
+    ) from None
+hass_nabucasa.alexa_api.AlexaApiNeedsRelinkError: RefreshTokenNotFound
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/cloud/alexa_config.py", line 458, in _sync_prefs
+    if await self._sync_helper(to_update, to_remove):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/cloud/alexa_config.py", line 490, in _sync_helper
+    await self.async_get_access_token()
+  File "/usr/src/homeassistant/homeassistant/components/cloud/alexa_config.py", line 343, in async_get_access_token
+    raise alexa_errors.RequireRelink from exception
+homeassistant.components.alexa.errors.RequireRelink
+2026-01-18 12:38:09.115 ERROR (MainThread) [homeassistant] Error doing job: Task exception was never retrieved (task: None)
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/cloud/alexa_config.py", line 330, in async_get_access_token
+    details = await self._cloud.alexa_api.access_token()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/hass_nabucasa/api.py", line 63, in wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/hass_nabucasa/alexa_api.py", line 63, in access_token
+    raise AlexaApiNeedsRelinkError(
+    ...<3 lines>...
+    ) from None
+hass_nabucasa.alexa_api.AlexaApiNeedsRelinkError: RefreshTokenNotFound
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/cloud/alexa_config.py", line 458, in _sync_prefs
+    if await self._sync_helper(to_update, to_remove):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/cloud/alexa_config.py", line 490, in _sync_helper
+    await self.async_get_access_token()
+  File "/usr/src/homeassistant/homeassistant/components/cloud/alexa_config.py", line 343, in async_get_access_token
+    raise alexa_errors.RequireRelink from exception
+homeassistant.components.alexa.errors.RequireRelink
+2026-01-18 12:42:32.195 WARNING (MainThread) [homeassistant.components.rest.data] REST request to http://nodered:1880/api/greenhouse/soil returned status 404 with text/html; charset=utf-8 response: <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/greenhouse/soil</pre>
+</body>
+</html>
+
+2026-01-18 12:42:32.195 ERROR (MainThread) [homeassistant.helpers.template] Template variable error: 'value_json' is undefined when rendering '{{ value_json.soil | default('unavailable') }}'
+2026-01-18 12:42:32.199 WARNING (MainThread) [homeassistant.components.rest.data] REST request to http://nodered:1880/api/greenhouse/temperature returned status 404 with text/html; charset=utf-8 response: <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/greenhouse/temperature</pre>
+</body>
+</html>
+
+2026-01-18 12:42:32.199 ERROR (MainThread) [homeassistant.helpers.template] Template variable error: 'value_json' is undefined when rendering '{{ value_json.temperature | default('unavailable') }}'
+2026-01-18 12:42:32.199 WARNING (MainThread) [homeassistant.components.rest.data] REST request to http://nodered:1880/api/greenhouse/light returned status 404 with text/html; charset=utf-8 response: <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/greenhouse/light</pre>
+</body>
+</html>
+
+2026-01-18 12:42:32.199 ERROR (MainThread) [homeassistant.helpers.template] Template variable error: 'value_json' is undefined when rendering '{{ value_json.light | default('unavailable') }}'
+2026-01-18 12:42:32.200 WARNING (MainThread) [homeassistant.components.rest.data] REST request to http://nodered:1880/api/greenhouse/humidity returned status 404 with text/html; charset=utf-8 response: <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/greenhouse/humidity</pre>
+</body>
+</html>
+
+2026-01-18 12:42:32.200 ERROR (MainThread) [homeassistant.helpers.template] Template variable error: 'value_json' is undefined when rendering '{{ value_json.humidity | default('unavailable') }}'
+2026-01-18 12:42:32.200 WARNING (MainThread) [homeassistant.components.rest.data] REST request to http://nodered:1880/api/greenhouse/tank returned status 404 with text/html; charset=utf-8 response: <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/greenhouse/tank</pre>
+</body>
+</html>
+
+2026-01-18 12:42:32.200 ERROR (MainThread) [homeassistant.helpers.template] Template variable error: 'value_json' is undefined when rendering '{{ value_json.tank | default('unavailable') }}'

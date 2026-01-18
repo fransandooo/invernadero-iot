@@ -9,9 +9,11 @@ services:
       - ./mosquitto/data:/mosquitto/data
       - ./mosquitto/log:/mosquitto/log
     restart: unless-stopped
-
   nodered:
     image: nodered/node-red:latest
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
     container_name: greenhouse-nodered
     ports:
       - "1881:1880"
@@ -20,3 +22,15 @@ services:
     restart: unless-stopped
     depends_on:
       - mosquitto
+  homeassistant:
+    image: ghcr.io/home-assistant/home-assistant:stable
+    container_name: greenhouse-homeassistant
+    volumes:
+      - ./homeassistant:/config
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "8123:8123"
+    restart: unless-stopped
+    depends_on:
+      - mosquitto
+      - nodered

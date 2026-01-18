@@ -18,11 +18,11 @@ Porcentaje: escala 0–100 que simplemente convierte la lectura cruda a algo má
 
 // --- WIFI ---
 // todos los nodos y ordenadores tienen que estar conectados a la misma red
-const char* ssid = "WWWWW"; // cambiar por el nombre de la red WiFi 
-const char* password = "w.w.w.w.w"; // cambiar por la contraseña de la red WiFi
+const char* ssid = "Gonzalos S24"; // cambiar por el nombre de la red WiFi 
+const char* password = "bondia2020"; // cambiar por la contraseña de la red WiFi
 
 // --- MQTT ---
-const char* mqtt_server = "10.228.245.75"; //donde está levantado
+const char* mqtt_server = "10.180.73.213"; //donde está levantado
 const char* mqtt_topic = "mq135";
 
 // --- OBJETOS ---

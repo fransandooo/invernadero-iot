@@ -1,0 +1,54 @@
+# Loads default set of integrations. Do not remove.
+default_config:
+
+# Load frontend themes from the themes folder
+frontend:
+  themes: !include_dir_merge_named themes
+
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+# Sensores del invernadero desde Node-RED
+sensor:
+  - platform: rest
+    name: "Temperatura Invernadero"
+    unique_id: greenhouse_temperature
+    resource: http://nodered:1880/api/greenhouse/temperature
+    value_template: "{{ value_json.temperature | default('unavailable') }}"
+    unit_of_measurement: "°C"
+    scan_interval: 10
+    device_class: temperature
+
+  - platform: rest
+    name: "Humedad Invernadero"
+    unique_id: greenhouse_humidity
+    resource: http://nodered:1880/api/greenhouse/humidity
+    value_template: "{{ value_json.humidity | default('unavailable') }}"
+    unit_of_measurement: "%"
+    scan_interval: 10
+    device_class: humidity
+
+  - platform: rest
+    name: "Humedad Suelo Invernadero"
+    unique_id: greenhouse_soil_moisture
+    resource: http://nodered:1880/api/greenhouse/soil
+    value_template: "{{ value_json.soil | default('unavailable') }}"
+    unit_of_measurement: "%"
+    scan_interval: 10
+
+  - platform: rest
+    name: "Nivel Tanque Invernadero"
+    unique_id: greenhouse_tank_level
+    resource: http://nodered:1880/api/greenhouse/tank
+    value_template: "{{ value_json.tank | default('unavailable') }}"
+    unit_of_measurement: "%"
+    scan_interval: 10
+
+  - platform: rest
+    name: "Iluminación Invernadero"
+    unique_id: greenhouse_light
+    resource: http://nodered:1880/api/greenhouse/light
+    value_template: "{{ value_json.light | default('unavailable') }}"
+    unit_of_measurement: "ADC"
+    scan_interval: 10

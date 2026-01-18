@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "minor_version": 1,
+  "key": "person",
+  "data": {
+    "items": [
+      {
+        "id": "alberto_gomez",
+        "name": "Alberto Gomez",
+        "user_id": "13ceba9e264e4243a3767801323a2215",
+        "device_trackers": []
+      }
+    ]
+  }
+}
