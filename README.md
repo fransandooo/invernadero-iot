@@ -27,7 +27,8 @@ ESP8266 Nodes  <-->  MQTT Broker (1883)  <-->  Node-RED (1880)
 																					 |--> Dashboard
 																					 |--> Telegram
 																					 |--> ThingSpeak
-																					 |--> Alexa (opcional)
+																					 |--> Alexa
+																					 |--> Google Assistant
 ```
 
 ## Estructura del repositorio
@@ -83,7 +84,7 @@ docker compose logs -f nodered
 
 ## Configuración en Node-RED
 
-Abre el editor (http://localhost:1880) y revisa/crea los flujos:
+Abre el editor (http://localhost:1881) y revisa/crea los flujos:
 
 - Instalación de nodos recomendados (Menú > Manage palette > Install):
 
@@ -108,7 +109,7 @@ Sugerencia de espacios de nombres y cargas útiles para mantener consistencia y 
 - Topics (ejemplo):
 
   - Telemetría sensores: `invernadero/sensor/{nodo}/{tipo}`
-    - `tipo`: `temp`, `hum`, `suelo`, `luz`, `nivel`...
+    - `tipo`: `temp`, `hum`, `suelo`, `luz`, `nivel`, `gas`...
   - Estados actuadores: `invernadero/act/{nodo}/{dispositivo}` (publicado por el nodo tras actuar)
   - Órdenes a actuadores: `invernadero/cmd/{nodo}/{dispositivo}` con payload de comando
   - Alertas (backend -> usuarios): `invernadero/alert/{nivel}` (`info|warn|crit`)
@@ -197,4 +198,4 @@ Por definir.
 
 ## Créditos
 
-Proyecto académico desarrollado por el equipo del curso de IoT.
+Proyecto académico desarrollado por el equipo 2 del curso de IoT.
