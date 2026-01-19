@@ -19,7 +19,7 @@ Porcentaje: escala 0–100 que simplemente convierte la lectura cruda a algo má
 #include <Ticker.h>
 
 // --- WIFI ---
-// todos los nodos y ordenadores tienen que estar conectados a la misma red
+// todos los nodos tienen que estar conectados a la misma red 
 const char* ssid = "wifi"; // cambiar por el nombre de la red WiFi 
 const char* password = "wifiwifi"; // cambiar por la contraseña de la red WiFi
 
