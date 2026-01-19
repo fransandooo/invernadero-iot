@@ -10,6 +10,8 @@ Porcentaje: escala 0–100 que simplemente convierte la lectura cruda a algo má
 */
 
 // --- INCLUDES ---
+// estas librerías se incluyen para el funcionemiento básico de Arduino, para la conexión WiFi, para la comunicación mediante MQTT, para crear y gestionar mensajes en formato JSON,
+//   y para poder ejecutar funciones de forma periódica mediante temporizadores sin bloquear el programa (evitando el uso de delay o millis).
 #include <Arduino.h>
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
@@ -18,12 +20,12 @@ Porcentaje: escala 0–100 que simplemente convierte la lectura cruda a algo má
 
 // --- WIFI ---
 // todos los nodos y ordenadores tienen que estar conectados a la misma red
-const char* ssid = "Gonzalos S24"; // cambiar por el nombre de la red WiFi 
-const char* password = "bondia2020"; // cambiar por la contraseña de la red WiFi
+const char* ssid = "wifi"; // cambiar por el nombre de la red WiFi 
+const char* password = "wifiwifi"; // cambiar por la contraseña de la red WiFi
 
 // --- MQTT ---
-const char* mqtt_server = "10.180.73.213"; //donde está levantado
-const char* mqtt_topic = "mq135";
+const char* mqtt_server = "10.228.245.75"; // la IP de donde esté levantado
+const char* mqtt_topic = "mq135"; // el topic es donde se publican los datos del sensor
 
 // --- OBJETOS ---
 WiFiClient espClient; // definimos el cliente WiFi para la conexión MQTT
@@ -33,22 +35,23 @@ PubSubClient client(espClient); // definimos el cliente MQTT usando el cliente W
 const int MQ135_PIN = A0; // pin analógico conectado al MQ135 (el MQ135 lee entre 0 y 1023)
 
 // --- TICKER ---
-Ticker wifiTicker;
+Ticker wifiTicker; // definimos el ticker que usaremos para la WiFi
 void tickWifi() {
-  Serial.print(".");
+  Serial.print("."); // esta función imprime un punto cada cierto tiempo mientras el nodo intenta conectarse a la WiFi (es solo informativo, para saber que no se ha bloqueado).
 }
 
-Ticker mqttTicker;
-void tickMQTT() {}
+Ticker mqttTicker; // definimos el ticker que usaremos para el MQTT
+void tickMQTT() {} // aquí no imprimimos un punto, pero tiene la misma funcionalidad que el ticker de la WiFi --> para reintentar la conexión MQTT periódicamente.
 
-Ticker mq135loopTicker;
+Ticker mq135loopTicker; // definimos el ticker que usaremos para el loop
 void tickMQ135loop() {
   // --- Leer MQ135 ---
-  int rawValue = analogRead(MQ135_PIN); // Valor crudo 0-1023
-  int gasPercentage = map(rawValue, 0, 1023, 0, 100); // Conversión a "porcentaje"
-  gasPercentage = constrain(gasPercentage, 0, 100);
+  int rawValue = analogRead(MQ135_PIN);// Hacemos la lectura del sensor, que mide entre 0 y 1023
+  int gasPercentage = map(rawValue, 0, 1023, 0, 100); // hacemos una conversión de la lectura a porcentaje
+  gasPercentage = constrain(gasPercentage, 0, 100); // limita que el valor de luz se mantengan en rango
 
   // --- Imprimir por Serial ---
+  // imprimimos por el Serial Monitor el raw (el valor leido del sensor, comprendido entre 0 y 1023) y el la conversión al porcentaje
   Serial.print("MQ135 raw: ");
   Serial.print(rawValue);
   Serial.print(" V | Concentración aprox: ");
@@ -56,10 +59,11 @@ void tickMQ135loop() {
   Serial.println(" %");
 
   // --- Crear JSON ---
-  StaticJsonDocument<128> doc;
+  StaticJsonDocument<128> doc; // creamos el objeto JSON en memoria
   doc["raw"] = rawValue;
   doc["percentage"] = gasPercentage;
 
+  // convertimos el JSON a texto y publicamos el mensaje en el topic:
   char buffer[128];
   serializeJson(doc, buffer);
 
@@ -77,9 +81,9 @@ void tickMQ135loop() {
 void setup_wifi() {
   Serial.print("Conectando a ");
   Serial.println(ssid);
-  WiFi.begin(ssid, password);
+  WiFi.begin(ssid, password); // iniciamos la conexión WiFi
 
-  wifiTicker.attach_ms(500, tickWifi); // Imprime un punto cada 500 ms para indicar que está intentando conectar
+  wifiTicker.attach_ms(500, tickWifi); // llamamos a tickWifi() cada 500ms, que imprimirá un punto para indicar que está intentando conectar
   // Esperamos a que conete
   while (WiFi.status() != WL_CONNECTED) {
     yield(); // recomendado en ESP8266
@@ -102,7 +106,7 @@ void reconnect() {
       Serial.println(" conectado");
     } else {
       Serial.print(" fallo rc=");
-      Serial.println(client.state());
+      Serial.println(client.state()); // si falla en conectar, aquí nos da el código de error
     }
     yield(); // recomendado en ESP8266
   }
@@ -114,16 +118,16 @@ void reconnect() {
 void setup() {
   Serial.begin(115200);
   setup_wifi();
-  client.setServer(mqtt_server, 1884);
+  client.setServer(mqtt_server, 1884); // configuramos el MQTT al  puerto 1884
 
-  reconnect();
-  mq135loopTicker.attach_ms(3000, tickMQ135loop); // publica cada 3 s
+  reconnect(); // llamamos a la función para conectar MQTT
+  mq135loopTicker.attach_ms(3000, tickMQ135loop); // ejecutamos la lectura del sensor y publica cada 3 s
 }
 
 // --- LOOP ---
 void loop() {
-  if (!client.connected()) reconnect();
+  if (!client.connected()) reconnect(); // verificamos que la conexión MQTT no ha caído
   client.loop();
 
-  yield(); // recomendado para el ESP8266
+  yield(); // recomendado para el ESP8266 ya que evita reinicios por watchdog en el ESP8266 (el watchdog reinicia el programa si éste se queda colgado/congelado)
 }
